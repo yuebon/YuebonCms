@@ -168,7 +168,7 @@
                         <th width="10%">积分</th>
                     </tr>
                     <%if(model.order_goods!=null)%>
-                    <%foreach(YueBonSoft.Model.order_goods modelt in model.order_goods)%>
+                    <%foreach(DTcms.Model.order_goods modelt in model.order_goods)%>
                     <tr>
                         <td width="60">
                             <a target="_blank" href="<%linkurl("goods_show",{modelt.article_id})%>">

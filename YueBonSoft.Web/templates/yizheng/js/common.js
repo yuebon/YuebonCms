@@ -10,9 +10,10 @@ var pageurl = window.location.search;
 if(pageurl == '?m2w') {
     addCookie('m2wcookie', '1', 0);
 }
-if(getCookie('m2wcookie') != '1' && browserRedirect()) {
-    location.href = 'http://yzsy.ts.yuebon.com';
-}
+//if(getCookie('m2wcookie') != '1' && browserRedirect()) {
+//    location.href = 'http://m.YueBonSoft.net';，                     
+//}
+
 /*工具类方法
 ------------------------------------------------*/
 //检测是否移动设备来访
@@ -31,33 +32,6 @@ function browserRedirect() {
 	} else { 
 		return false;
 	} 
-}
-
-//加入收藏
-function AddFavorite(sURL, sTitle) {
-    sURL = encodeURI(sURL);
-    try {
-        window.external.addFavorite(sURL, sTitle);
-
-    } catch (e) {
-        try {
-            window.sidebar.addPanel(sTitle, sURL, "");
-        }
-        catch (e) {
-            alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
-        }
-    }
-}
-
-//设为首页
-function SetHome(url) {
-    if (document.all) {
-        document.body.style.behavior = 'url(#default#homepage)';
-        document.body.setHomePage(url);
-    }
-    else {
-        alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
-    }
 }
 //写Cookie
 function addCookie(objName, objValue, objHours) {
@@ -546,3 +520,70 @@ function initCUPlayer(sitePath, divId, videoSrc){
     //so.addVariable("JcScpImg",videoPic); //视频图片
     so.write(divId);
 }
+
+function scrollFun(t, e, i) {
+    if ("function" == typeof i) {
+        var n = 1;
+        $(window).scroll(function () {
+            if (1 == n) {
+                var r = t.offset().top - $(window).scrollTop() - $(window).height();
+                r < e && (i(), n = 0)
+            }
+        })
+    }
+}
+
+
+function IsotopeNum(t, e) {
+    var i = $(t).isotope(),
+    n = $(e + ".active a").data("filter");
+    $(e).on("click", "a",
+    function () {
+        var t = $(this).data("filter"),
+        e = "[data-type=" + t + "]",
+        r = $(this).data("num");
+        r && (e = function () {
+            return $(this).index() < r
+        } || e),
+        i.isotope({
+            filter: e
+        }),
+        t != n && $(e).find("[data-original]").each(function () {
+            $(this).data("original") != $(this).attr("src") && $(this).lazyload({
+                event: "sporty"
+            }).trigger("sporty")
+        })
+    }),
+    setTimeout(function () {
+        $(e + ".active a").trigger("click")
+    },
+    500)
+}
+
+
+function removeImageSize(t, e) {
+    $(t).each(function () {
+        if ($(this).data("original")) var t = $(this),
+        i = setInterval(function () {
+            t.data("original") == t.attr("src") && (t.height("").removeAttr("width").removeAttr("height"), "function" == typeof e && e(), clearInterval(i))
+        },
+        10);
+        else $(this).height("").removeAttr("width").removeAttr("height"),
+        "function" == typeof e && e()
+    })
+}
+
+function sonWidthSum(t, e) {
+    var t = $(t),
+    i = t.length,
+    n = 0; (e > i || !e) && (e = i);
+    for (var r = 0; r < e; r++) n += t.eq(r).outerWidth();
+    return n
+}
+
+$(".met-scroll-top").click(function () {
+    $("html,body").animate({
+        scrollTop: 0
+    },
+    300)
+});

@@ -100,7 +100,7 @@
                 </h2>
                 <ul>
                 <%if(model.attach!=null)%>
-                <%foreach(YueBonSoft.Model.article_attach modelt in model.attach)%>
+                <%foreach(DTcms.Model.article_attach modelt in model.attach)%>
                     <li>
                         <a class="link-btn" href="javascript:;" onclick="downLink({modelt.point},'{config.webpath}tools/download.ashx?site={site.build_path}&id={modelt.id}');">
                             <i class="iconfont icon-down"></i>下载

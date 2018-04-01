@@ -100,7 +100,7 @@ $(function() {
             <div class="album-list">
                 <ul>
                 <%if(model.albums!=null)%>
-                <%foreach(YueBonSoft.Model.article_albums modelt in model.albums)%>
+                <%foreach(DTcms.Model.article_albums modelt in model.albums)%>
                     <li>
                         <a title="{modelt.remark}" href="javascript:;">
                             <img data-original="{modelt.original_path}" src="{modelt.thumb_path}" />

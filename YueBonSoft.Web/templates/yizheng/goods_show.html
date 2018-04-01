@@ -7,7 +7,8 @@
 <%if(model.seo_title!="")%>
 <%set strTitle=model.seo_title%>
 <%/if%>
-<title>{strTitle} -{category_title} - {site.name}</title>
+<title>{strTitle} - {site.name}</title>
+<title>{model.title} - {category_title} - {site.name}</title>
 <meta name="keywords" content="{model.seo_keywords}" />
 <meta name="description" content="{model.seo_description}" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -71,7 +72,7 @@ $(function(){
                                 <div class="items">
                                     <ul>
                                     <%if(model.albums!=null)%>
-                                    <%foreach(YueBonSoft.Model.article_albums modelt in model.albums)%>
+                                    <%foreach(DTcms.Model.article_albums modelt in model.albums)%>
                                         <li><img bimg="{modelt.original_path}" src="{modelt.thumb_path}" onmousemove="preview(this);" /></li>
                                     <%/foreach%>
                                     <%/if%>
@@ -106,17 +107,17 @@ $(function(){
             
                         <div class="spec-box line" id="goodsSpecBox">
                             <!--商品规格-->
-                            <%set List<YueBonSoft.Model.article_goods_spec> specList=get_article_goods_spec(model.channel_id, model.id, "parent_id=0")%>
+                            <%set List<DTcms.Model.article_goods_spec> specList=get_article_goods_spec(model.channel_id, model.id, "parent_id=0")%>
                             <%if(specList!=null)%>
-                            <%foreach(YueBonSoft.Model.article_goods_spec modelt1 in specList)%>
+                            <%foreach(DTcms.Model.article_goods_spec modelt1 in specList)%>
                             <dl>
                                 <dt>{modelt1.title}</dt>
                                 <dd>
                                     <ul class="items">
                                         <!--规格选项-->
-                                        <%set List<YueBonSoft.Model.article_goods_spec> itemList=get_article_goods_spec(model.channel_id, model.id, "parent_id="+modelt1.spec_id)%>
+                                        <%set List<DTcms.Model.article_goods_spec> itemList=get_article_goods_spec(model.channel_id, model.id, "parent_id="+modelt1.spec_id)%>
                                         <%if(itemList!=null)%>
-                                        <%foreach(YueBonSoft.Model.article_goods_spec modelt2 in itemList)%>
+                                        <%foreach(DTcms.Model.article_goods_spec modelt2 in itemList)%>
                                         <li>
                                             <a specid="{modelt2.spec_id}" title="{modelt2.title}" href="javascript:;">
                                             <%if(modelt2.img_url!=null&&modelt2.img_url!="")%>

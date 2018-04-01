@@ -68,9 +68,9 @@
                     <tr>
                         <td>{dr[order_no]}</td>
                         <td>
-                            <%set List<YueBonSoft.Model.article> ls=get_order_goods_list({strtoint({dr[id]})})%>
+                            <%set List<DTcms.Model.article> ls=get_order_goods_list({strtoint({dr[id]})})%>
                             <%if(ls!=null)%>
-                                <%foreach(YueBonSoft.Model.article modelt in ls)%>
+                                <%foreach(DTcms.Model.article modelt in ls)%>
                                     <a target="_blank" title="{modelt.title}" href="<%linkurl("goods_show",{modelt.id})%>">
                                         <img width="60" height="60" alt="{modelt.title}" src="{modelt.img_url}" class="img">
                                     </a>
@@ -136,9 +136,9 @@
                     <tr>
                         <td>{dr[order_no]}</td>
                         <td>
-                            <%set List<YueBonSoft.Model.article> ls=get_order_goods_list({strtoint({dr[id]})})%>
+                            <%set List<DTcms.Model.article> ls=get_order_goods_list({strtoint({dr[id]})})%>
                             <%if(ls!=null)%>
-                                <%foreach(YueBonSoft.Model.article modelt in ls)%>
+                                <%foreach(DTcms.Model.article modelt in ls)%>
                                     <a target="_blank" title="{modelt.title}" href="<%linkurl("goods_show",{modelt.id})%>">
                                         <img width="60" height="60" alt="{modelt.title}" src="{modelt.img_url}" class="img">
                                     </a>

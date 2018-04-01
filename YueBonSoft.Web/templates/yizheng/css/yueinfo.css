@@ -10639,44 +10639,42 @@ table.tablesaw{width:100%;max-width:100%;empty-cells:show}.tablesaw{width:100%;b
   list-style: none;
 }
 /*编辑器*/
-
-.less-page-body,.met-editor,.met_pager a:not(.Ahover).NextA:hover,.met_pager a:not(.Ahover).PreA:hover {
- background:#fff;
-}
 .met-editor {
- padding:30px;
- line-height:1.8;
- font-size:18px;
- font-weight:300;
- color:#222
+  padding: 30px;
+  background: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #222;
+  word-wrap: break-word;
 }
-@media (max-width:767px) {
- .met-editor {
-  padding:10px
- }
+@media (max-width: 767px) {
+  .met-editor {
+    padding: 10px;
+  }
 }
 .met-editor p {
- margin-bottom:16px
+  margin-bottom: 16px;
 }
 .met-editor img {
- max-width:100%;
- height:auto!important
+  max-width: 100%;
+}
+.met-editor img:not(.imgload) {
+  height: auto !important;
 }
 .met-editor table {
- color:#2a333c
-}
-.met-editor .metvideo,.met-editor iframe,.met-editor video {
- max-width:100%!important;
- margin:auto;
- display:block
-}
-@media (max-width:768px) {
- .met-editor .metvideo,.met-editor video {
-  height:auto!important
- }
+  color: #464646;
 }
 .met-editor .table-saw {
- overflow-x:auto
+  overflow-x: auto;
+}
+.met-editor video,
+.met-editor .metvideo,
+.met-editor iframe {
+  max-width: 100% !important;
+  margin: auto;
+  display: block;
 }
 /*分页*/
 .met_pager {
@@ -13020,57 +13018,82 @@ footer p {
   color: #696969;
 }
 /* 文章模块详情页 */
-
 .met-shownews {
- padding:30px 0;
- background:#f2f2f2
+  padding: 30px 0px;
+  border-top: 1px solid #f0f2f5;
+  background: #f2f2f2;
 }
-@media (max-width:767px) {
- .met-shownews {
-  padding:0
- }
+@media (max-width: 767px) {
+  .met-shownews {
+    padding: 0px;
+  }
+  .met-shownews .met-shownews-header {
+    padding-top: 20px;
+  }
 }
-.met-shownews .met-shownews-footer,.met-shownews .met-shownews-header {
- background:#fff;
- padding:30px
+.met-shownews .met-shownews-body {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-@media (max-width:767px) {
- .met-shownews .met-shownews-footer,.met-shownews .met-shownews-header {
-  padding:10px
- }
- .met-shownews .met-shownews-header {
-  padding-top:20px
- }
+.met-shownews .met-news-body {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.met-shownews .met-editor .postbody {
+  width: 100%!important;
+}
+.met-shownews .met-shownews-header,
+.met-shownews .met-shownews-footer {
+  padding: 30px;
+  background: #ffffff;
+}
+@media (max-width: 767px) {
+  .met-shownews .met-shownews-header,
+  .met-shownews .met-shownews-footer {
+    padding: 10px;
+  }
 }
 .met-shownews .met-shownews-header {
- padding-bottom:0
+  padding-bottom: 0px;
 }
 .met-shownews h1 {
- margin:0 0 5px;
- font-size:32px
+  margin: 0px;
+  margin-bottom: 5px;
+  font-size: 32px;
 }
-.met-shownews .note{
-    background:#ffe9a2;
-    padding:5px 10px;
-    line-height:20px;
+@media (max-width: 767px) {
+  .met-shownews h1 {
+    font-size: 20px;
+  }
 }
 .met-shownews .info {
- color:#a3afb7;
- font-size:16px;
- font-weight:300;
- padding-bottom:20px;
- border-bottom:1px solid #f0f2f5
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 16px;
+  font-weight: 300;
+  color: #a3afb7;
 }
 .met-shownews .info span {
- padding-right:10px
+  padding-right: 10px;
+}
+@media (max-width: 767px) {
+  .met-shownews .info {
+    padding-bottom: 20px;
+  }
 }
 .met-shownews .met-shownews-footer {
- padding-top:0
+  padding-top: 0px;
 }
 .met-shownews .met-shownews-footer ul.pager {
- margin:0;
- border-top:1px solid #f0f2f5;
- padding-top:20px
+  margin: 0px;
+  border-top: 1px solid #f0f2f5;
+  padding-top: 20px;
 }
 /*社会化分享按钮*/
 .met_tools_code {

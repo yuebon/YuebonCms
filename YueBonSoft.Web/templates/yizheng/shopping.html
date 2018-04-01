@@ -215,7 +215,7 @@ $(function(){
                         <th width="84" align="left">积分</th>
                         <th width="84" align="center">库存(件)</th>
                     </tr>
-                    <%foreach(YueBonSoft.Model.cart_items modelt in goodsList)%>
+                    <%foreach(DTcms.Model.cart_items modelt in goodsList)%>
                     <tr>
                         <td width="68">
                             <a target="_blank" href="<%linkurl("goods_show",{modelt.article_id})%>">
