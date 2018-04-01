@@ -1,0 +1,342 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>{site.seo_title}</title>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="keywords" content="{site.seo_keyword}" />
+    <meta name="description" content="{site.seo_description}" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap-extend.min.css" />
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel2-2.2.1/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/breakpoints.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/swiper/js/swiper.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel2-2.2.1/owlcarousel2-2.2.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: true
+            });
+
+            Breakpoints();
+            if ($(".met-index-service .services-box").length && $(".met-index-service .services-box img[data-original]").lazyload({
+                threshold: 300,
+                effect: "fadeIn"
+            }), $(".met-index-product").length && scrollFun($(".met-index-product"), 300,
+                function () {
+                    $(".met-index-product .owl-carousel").owlCarousel({
+                    loop: !0,
+                    margin: 10,
+                    nav: !0,
+                    lazyLoad: !0,
+                    dots: !1,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    autoplay: !0,
+                    autoplayTimeout: 3e3,
+                    autoplayHoverPause: !0,
+                    responsive: {
+                            0: {
+                    items: 1
+                },
+                            767: {
+                    items: 1
+                },
+                            970: {
+                    items: 2
+                },
+                            1024: {
+                    items: 3
+                },
+                            1200: {
+                    items: 4
+                }
+                }
+                })
+            }));
+            
+
+            if ($(".met-index-case").length) {
+                Breakpoints.get("xs").on({
+                    enter: function () {
+                        if (!$(".met-index-case .nav-tabs").parent().hasClass("swiper-container")) {
+                            $(".met-index-case .nav-tabs").addClass("swiper-wrapper").wrap('<div class="swiper-container"></div>').find(">li").addClass("swiper-slide").css("width", "auto");
+                            new Swiper(".swiper-container", {
+                                slidesPerView: "auto"
+                            });
+                            $(".met-index-case .nav-tabs").width(sonWidthSum(".met-index-case .nav-tabs>li") + 5)
+                        }
+                    }
+                });
+                var t = ".met-index-case .blocks",
+                e = ".met-index-case .nav-tabs li";
+                $(t + " [data-original]").lazyload({
+                    threshold: 300,
+                    effect: "fadeIn",
+                    skip_invisible: !0
+                }),
+                IsotopeNum(t, e),
+                removeImageSize(t + " [data-original]",
+                function () {
+                    $(e + ".active a").trigger("click")
+                })
+            }
+        })
+    </script>
+</head>
+
+<body id="index" class="yue-navfixed">
+<!--[if lte IE 8]>
+    <div class="text-center padding-top-50 padding-bottom-50 bg-blue-grey-100">
+    <p class="browserupgrade font-size-18">你正在使用一个<strong>过时</strong>的浏览器。请<a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以提高您的体验。</p>
+    </div>
+<![endif]-->
+    
+<div id="page">
+<!--页面头部-->
+<%template src="_header.html"%>
+<!--/页面头部-->
+<script type="text/javascript" src="/plugins/advert/advert_js.ashx?id=1"></script>
+    <div class="met-index-service met-index-body">
+        <div class="container services-bg">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="#" title="我们的产品" target='_self'>Scope of business</a></h3>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">We provide professional products and services for different industries</p>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 animation-slide-top" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <a href="goodsen/63.html" title="Automotive industry" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/qiche.jpg" src="<%templateskin%>/images/qiche.jpg" title="Automotive industry" alt="Automotive industry">
+                            <div class="content">
+                                <h4>Automotive industry</h4>
+                                <p>an Xuan die has the related moulds, such as the control, the foot board, the dashboard, the safety belt buckle, the steering wheel and so on.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="goodsen/66.html" title="Pipeline product" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/guanlu.jpg" src="<%templateskin%>/images/guanlu.jpg" title="Pipeline product" alt="Pipeline product">
+                            <div class="content">
+                                <h4>Pipeline product</h4>
+                                <p>Yan Xuan mould is designed and manufactured for pipe fittings in pipeline products to provide the most competitive pipe fittings for customers.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-6 col-md-12'>
+                    <a href="goodsen/64.html" title="Household" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/jiadian.jpg" src="<%templateskin%>/images/jiadian.jpg" title="Household" alt="Household">
+                            <div class="content">
+                                <h4>Household Electric Appliances</h4>
+                                <p>Yan Xuan die has the mould of TV set, electric hair dryer, air purifier parts and so on.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="goodsen/65.html" title="Electronic" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/thumb_002.jpg" src="<%templateskin%>/images/thumb_002.jpg" title="Electronic" alt="Electronic">
+                            <div class="content">
+                                <h4>Electronic product</h4>
+                                <p>The products of our products include aluminum profile case shell, aluminum radiator, sheet metal case, cabinet, plastic case, aluminum alloy and plastic seal box.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-product met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods/53.html" title="Main mold" target='_self'>Main mold</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">We have a rich mold to provide customers with high quality mold products.</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="owl-carousel  animation-slide-bottom" data-animate="slide-bottom">
+                        <%set DataTable redList=get_article_list("goodsen", 53, 10, "status=0 and is_red=1")%>
+                        <%loop reddr redList%>
+                        <li class="project-item ">
+                            <a href="<%linkurl("goods_show",{reddr[id]})%>" title="{reddr[title]}" target='_self'>
+                                <div class="project-img">
+                                    <img class="owl-lazy" data-src="{reddr[img_url]}" src="{reddr[img_url]}" alt="{reddr[title]}" class="cover-image">
+                                </div>
+                                <div class="project-intro">
+                                    <h4 class="project-title">{reddr[title]}</h4>
+                                    <div class="project-descr">{reddr[zhaiyao]}</div>
+                                </div>
+                            </a>
+                        </li>
+                        <%/loop%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-case met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods.html" title="热门产品" target='_self'>Hot Product</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Our company's hot mold products</p>
+        </div>
+        <ul class="nav nav-tabs animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+            <li class="active">
+                <a href="#caselist" title="All" data-toggle="tab" data-num='5' data-filter="*">All</a>
+            </li>
+            <li>
+                <a href="#caselist" title="Automobile accessory" data-toggle="tab" data-filter="list_40">Automobile accessory</a>
+            </li>
+            <li>
+                <a href="#caselist" title="Household" data-toggle="tab" data-filter="list_41">Household</a>
+            </li>
+            <li>
+                <a href="#caselist" title="PiPing" data-toggle="tab" data-filter="list_42">PiPing</a>
+            </li>
+            <li>
+                <a href="#caselist" title="Electronic" data-toggle="tab" data-filter="list_52">Electronic</a>
+            </li>
+        </ul>
+
+        <ul class="blocks no-space blocks-xlg-5 blocks-md-5 blocks-sm-3 blocks-xs-2" id="caselist">
+            <%set DataTable hotList=get_article_list("goodsen", 10, "status=0 and is_hot=1 and category_id in(40,41,42,52)")%>
+            <%loop hotdr hotList%>
+            <li data-type="list_{hotdr[category_id]}" class="project-item">
+                <div class="widget widget-shadow">
+                    <figure class="widget-header cover">
+                        <a href="<%linkurl("goods_show",{hotdr[id]})%>" title="{hotdr[title]}" target='_self'>
+                            <div class="project-img">
+                                <img data-original="{hotdr[img_url]}" src="{hotdr[img_url]}"  alt="{hotdr[title]}" width="400" height="350" class="cover-image">
+                            </div>
+                            <div class="project-intro">
+                                <h4 class="project-title">{hotdr[title]}</h4>
+                                <div class="project-descr">{hotdr[zhaiyao]}</div>
+                            </div>
+                        </a>
+                    </figure>
+                </div>
+            </li>
+            <%/loop%>
+        </ul>
+    </div>
+
+    <div class="met-index-about met-index-body">
+        <div class="container-fluid">
+            <div class="left_side animation-slide-top" data-animate="slide-top" data-bg="<%templateskin%>/images/1479211597.jpg" bg-repeat="false" style='background-image: url("<%templateskin%>/images/1479211597.jpg");'>
+                <div class="we_are_opacity">
+                    <div class="we_are_border">
+                        <h2>About us</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="right_side animation-slide-top" data-animate="slide-top" data-plugin="appear" data-repeat="false">
+                <div class="we_are_deatails">
+                    <h2><a href="about/1-cn.html" title="Company profile" target='_self'>Company profile</a></h2>
+                    <p>
+                    <p>Shanghai Yan Xuan precision mould Co., Ltd. is a professional design and manufacture of precision plastic mold production enterprises, is committed to automotive accessory products, computer peripheral products, household appliances and electronic products and other mold design and manufacturing.</p>
+                    <p>Founded in 2011, The company has excellent technical team and advanced science and technology equipment, every product is produced with the strength of our team and the spirit of innovation, rigorous attitude, focus on excellence as the most perfect customer product design.</p>
+
+                    <p>We will always adhere to the "quality first, customer first, strict reputation, serving the community" purpose, to contribute to the development of China's die and mold career.</p>
+                    <p><strong>Vision：</strong>:creating excellent brand of mould industry.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-bottomcontact met-index-body">
+        <div class="container">
+            <div class="row">
+                <div class="partner col-lg-12 col-md-12">
+                    <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="hezuo/list-39-cn.html" title="Parter" target='_self'>Parter</a></h3>
+                    <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Welcome more companies to be our partners</p>
+                    <div class="row">
+                        <ul class="partnerli">
+                            <%set DataTable hotPartnerList=get_article_list("partner", 30, "status=0 and is_hot=1")%>
+                            <%loop prdr hotPartnerList%>
+                            <li class="col-lg-1 col-md-2  col-sm-2 col-xs-3"><a href="#" title="{prdr[title]}" target='_self' class="met-img"><img src="{prdr[img_url]}" title="{prdr[title]}" alt="{prdr[title]}"></a></li>
+                            <%/loop%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-cases met-index-body" data-bg="<%templateskin%>/images/cases_bg.jpg" style="background-image:url(<%templateskin%>/images/cases_bg.jpg);" bg-repeat="false">
+        <div class="container">
+            <div class="owl-carousel" data-plugin="appear" data-animate="fade" data-repeat="false">
+                <%set DataTable redCaseList=get_article_list("caseen", 9, "status=0 and is_red=1")%>
+                <%loop casedr redCaseList%>
+                <div class="item">
+                    <div class="testimonials">
+                        <div class="testimonials-content">
+                            <h3>{casedr[title]}</h3>
+                            <p>{casedr[zhaiyao]}</p>
+                        </div>
+                        <div class="testimonials-author">
+                            <img class="owl-lazy" data-src="{casedr[img_url]}" src="{casedr[img_url]}" title="{casedr[title]}" alt="{casedr[title]}" height="350">
+                            <span class="t-mgr30">{casedr[source]} </span>
+                        </div>
+                    </div>
+                </div>
+                <%/loop%>
+            </div>
+        </div>
+    </div>
+    <div class="met-index-news met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="<%linkurl("news")%>" title="News" target='_self'>News</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Latest industry information and Yan Xuan dynamics</p>
+
+            <div class="row">
+                <%set DataTable newsList=get_article_list("newsen", 3, "status=0")%>
+                <%loop newsdr newsList%>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 single-blog-post" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <div class="img-holder">
+                        <img class="cover-image" data-original="{newsdr[img_url]}" src="{newsdr[img_url]}" alt="{newsdr[title]}" title="{newsdr[title]}" width="370" height="200">
+                        <div class="overlay">
+                            <a href="<%linkurl("news_showen",{newsdr[id]})%>" title="{newsdr[title]}" target='_self'>
+                                <div class="overlays">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><span><%datetostr({newsdr[add_time]},yyyy-MM-dd)%></span></li>
+                        <li><p><i class="icon wb-eye margin-right-5" aria-hidden="true"></i>{newsdr[click]}</p></li>
+                    </ul>
+                    <a href="news/75-cn.html" title="{newsdr[title]}" target='_self'><h2>{newsdr[title]}</h2></a>
+                    <p>{newsdr[zhaiyao]}</p>
+                </div>
+                <%/loop%>
+            </div>
+        </div>
+    </div>
+
+<!--页面底部-->
+<%template src="_footer.html"%>
+<!--/页面底部-->
+
+</div>
+</body>
+</html>

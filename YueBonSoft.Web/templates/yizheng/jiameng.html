@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.seo_title}</title>
+<meta name="keywords" content="{site.seo_keyword}" />
+<meta name="description" content="{site.seo_description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/yueinfo.css" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+<script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jqslider.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("#slide-box").jqslider(); //初始化幻灯片
+    $("#focus-box").flexslider({
+        directionNav: false,
+		pauseOnAction: false
+	});
+});
+</script>
+</head>
+<!--[if lte IE 8]>
+<div class="text-xs-center m-b-0 bg-blue-grey-100 alert">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">×</span>
+    </button>
+    你正在使用一个 <strong>过时</strong> 的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以提高您的体验。
+</div>
+<![endif]-->
+
+<body id="index">
+    <!--页面头部-->
+    <%template src="_header.html"%>
+    <!--/页面头部-->
+    <!--Banner-->
+    <div id="slide-box" class="slide-box" >
+        <ul class="list-box">
+            <li><a href="javascript:;" target="_blank"><img src="<%templateskin%>/images/1508925972.jpg" /></a></li>
+        </ul>
+    </div>
+    <!--/Banner-->
+    
+    <div class="met-index-service met-index-body">
+        <div class="container">
+            <h3 class="appear-no-repeat animation-slide-top" data-repeat="false">招商加盟</h3>
+            <p class="desc appear-no-repeat animation-fade" data-repeat="false">—— Jion Us ——</p>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">益正天地 道和阴阳 睿意劲取 匠心所致</p>
+            <div class="slider slick-initialized slick-slider animation-slide-bottom appear-no-repeat" data-plugin="appear" data-animate="slide-bottom" data-repeat="false" id="serviceSlick" data-show="1 2 4 4 ">
+                <div aria-live="polite" class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1280px; transform: translate3d(0px, 0px, 0px);" role="listbox">
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 290px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="加盟条件" tabindex="0">
+                                <img class="img-responsive" alt="加盟条件" src="<%templateskin%>/images/jion-1.jpg" />
+                                <h4>加盟条件</h4>
+                                <p>热爱零售行业，有志于在养生保健酒行业发展；有一定的资金和足够的人手；认同益正实业的管理模式和一定的风险意识。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 290px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="加盟优势" tabindex="0">
+                                <img class="img-responsive" alt="加盟优势" src="<%templateskin%>/images/jion-2.jpg">
+                                <h4>加盟优势</h4>
+                                <p>我们益正实业旗下三个品牌都是国内品牌，我们团队是做零售快消和中医世家精英组成，自己富不是目标，全民富有才是我们老板的最终心愿，所以我们投身于这个风口行业，并且2017年度推出几个优惠政策，名额有限。益正实业共同创建平等、互惠、共赢的战略伙伴关系，创建“使命相通、诚信务实、合作共赢”的国医养生平台，为人类的健康事业发展做出应有的贡献，带着全民致富的初衷，来与我们的合作伙伴合作这个项目。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 290px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="加盟流程" tabindex="0">
+                                <img class="img-responsive" alt="加盟流程" src="<%templateskin%>/images/jion-3.jpg">
+                                <h4>加盟流程</h4>
+                                <p>益正实业加盟流程：
+1.签订加盟意向书
+2.市场人员评估，确定店铺选址
+3.签订加盟合同
+4.公司总部制作门店开业进度表
+5.确定设计方案
+6.施工进场
+7.开业前培训
+8.设备、商品进场
+9.开业庆典。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 290px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="产品特色" tabindex="0">
+                                <img class="img-responsive" alt="产品特色" src="<%templateskin%>/images/jion-4.jpg">
+                                <h4>产品特色</h4>
+                                <p>产品均通过严格的GMP质量管理规范和认证生产，公司非常重视产品的品质和质量，已获得了众多消费者的认可和信赖。</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about-background" data-original="<%templateskin%>/images/1510736492.jpg" style="display: block; background-image: url(<%templateskin%>/images/1510736492.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-title title-box"><h2>关于我们</h2></div>
+                    <div class="about-box">
+                        <p>
+                            上海益正实业有限公司是一家集科研、开发、生产、经营为一体的现代化企业，专注于传承国医文化根本进行养生保健类系列产品开发。公司总部位于拥有中国国际金融中心之称的上海。公司自创办以来，一直以“益正天地，道和阴阳”为经营开发理念致力于人类健康事业的发展，并恪守“睿意劲取，匠心所致”的企业精神，谨记优良品质匠心创造才是企业生存及发展的唯一途径。不断加强企业管理、提高产品品质和质量、注重科技创新和传统中医理念相结合，强化市场营销、注重品牌形象，致力于打造一个有继承和传承的可持续健康发展的新型高新技术企业。
+                        </p>
+                    </div>
+                    <div class="about-link">
+                        <a href="<%linkurl("content","about")%>" title="关于我们">查看更多>></a>
+                    </div>
+                </div>
+                <div class="col-md-6 about-video"><embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=c0508tuzval&auto=0" allowFullScreen="true" quality="high" width="610" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+            </div>
+        </div>
+    </div>
+    <div class="met-index-news met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false">新闻资讯</h3>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">—— NEWS ——</p>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false"></p>
+            <ul class="blocks-2" data-scale="0.6">
+                <%set DataTable focusNews=get_article_list("news", 0, 6, "status=0  and img_url<>''")%>
+                <%foreach(DataRow dr in focusNews.Rows)%>
+                <li class="animation-slide-bottom appear-no-repeat" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <div class="media media-lg">
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="<%linkurl("news_show",{dr[id]})%>" title="{dr[title]}" target="_self">
+                                    {dr[title]}
+                                </a>
+                            </h4>
+                            <p class="des">{dr[zhaiyao]}.....</p>
+                            <p class="info">
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <%/foreach%>
+            </ul>
+            <a href="<%linkurl("news")%>" class="more" title="资讯中心" target="_self"></a>
+        </div>
+    </div>
+    <!--页面底部-->
+    <%template src="_footer.html"%>
+    <!--/页面底部-->
+</body>
+</html>

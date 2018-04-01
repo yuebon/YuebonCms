@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.seo_title}</title>
+<meta name="keywords" content="{site.seo_keyword}" />
+<meta name="description" content="{site.seo_description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/yueinfo.css" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+<script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jqslider.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("#slide-box").jqslider(); //初始化幻灯片
+    $("#focus-box").flexslider({
+        directionNav: false,
+		pauseOnAction: false
+	});
+});
+</script>
+</head>
+<!--[if lte IE 8]>
+<div class="text-xs-center m-b-0 bg-blue-grey-100 alert">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">×</span>
+    </button>
+    你正在使用一个 <strong>过时</strong> 的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以提高您的体验。
+</div>
+<![endif]-->
+
+<body id="index">
+    <!--页面头部-->
+    <%template src="_header.html"%>
+    <!--/页面头部-->
+    <!--Banner-->
+    <div id="slide-box" class="slide-box">
+        <ul class="list-box">
+            <li><a href="javascript:;" target="_blank"><img src="<%templateskin%>/images/banner-1.jpg" /></a></li>
+            <li><a href="javascript:;" target="_blank"><img src="<%templateskin%>/images/banner-2.jpg" /></a></li>
+            <li><a href="javascript:;" target="_blank"><img src="<%templateskin%>/images/banner-3.jpg" /></a></li>
+        </ul>
+    </div>
+    <!--/Banner-->
+    
+
+    <div class="about-background" data-original="<%templateskin%>/images/dybg.jpg" style="display: block; background-image: url(<%templateskin%>/images/dybg.jpg);border-bottom:5px solid #eb9204;border-top:5px solid #eb9204;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><img src="<%templateskin%>/images/daoyang.png" class="daoyang-img" width="100%" /></div>
+                <div class="col-md-6">
+                    <div class="daoyang-title title-box"><h2>道阳醇-多种名贵草本，精心酿制</h2></div>
+                    <div class="daoyang-box">
+                        <p>
+                            道阳醇养生酒历经二年多研发，采用《本草纲目》36种上等名贵中药材，精准配伍，经19道古法工序泡制精心酿制而成，其色泽金黄通透，具有口感醇厚、见效快特点。<strong>调和阴阳、补益活血、温阳补肾、增强免疫力</strong>之保健功效。
+                        </p>
+                    </div>
+                    <div class="daoyang-link">
+                        <a href="goods/show-101.html" title="关于我们">查看更多>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-background" data-original="<%templateskin%>/images/jhsbg.jpg" style="display: block; background-image: url(<%templateskin%>/images/jhsbg.jpg);border-bottom:5px solid #0092f7;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="daoyang-title title-box"><h2>玖护士-时刻为您健康保驾护航</h2></div>
+                    <div class="daoyang-box">
+                        <p>
+                            功效：解酒护肝、健脾和胃。玖护士源自《本草纲目》上等中药精准配伍，经93次反复调试解决口感、色泽、疗效、提纯提取工艺，大量临床试验认证。益正实业“玖护士”解酒护肝茶经得起考验的产品！
+                        </p>
+                    </div>
+                    <div class="daoyang-link">
+                        <a href="goods/show-99.html" title="玖护士">查看更多>></a>
+                    </div>
+                </div>
+                <div class="col-md-6"><img src="<%templateskin%>/images/jiuhushi.png" class="ruijing-img" width="100%" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-background" data-original="<%templateskin%>/images/rhbg.jpg" style="display: block; background-image: url(<%templateskin%>/images/rhbg.jpg);border-bottom:5px solid #031b31;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><img src="<%templateskin%>/images/ruijing.png" class="ruijing-img" width="100%" /></div>
+                <div class="col-md-6">
+                    <div class="ruijing-title title-box"><h2>睿劲</h2></div>
+                    <div class="ruijing-box">
+                        <p>
+                            睿劲品牌主要以养生型本草配制酒及白酒系列产品。睿劲酒彰显了对保健、养生功效的专注精神，提升酒的精华，集多种名贵药材人参、枸杞、覆盆子、蛹虫草、牡蛎、杜仲雄花等配制而成。为人体起保驾护航之作用，功效显著，实属佳品。
+                        </p>
+                    </div>
+                    <div class="ruijing-link">
+                        <a href="goods/show-100.html" title="睿劲">查看更多>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-background" data-original="<%templateskin%>/images/1510736492.jpg" style="display: block; background-image: url(<%templateskin%>/images/1510736492.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-title title-box"><h2>关于我们</h2></div>
+                    <div class="about-box">
+                        <p>上海益正实业有限公司是一家集科研、开发、生产、经营为一体的现代化企业，专注于传承国医文化根本进行养生保健类系列产品开发。公司总部位于拥有中国国际金融中心之称的上海。公司自创办以来，一直以“益正天地，道和阴阳”为经营开发理念致力于人类健康事业的发展，并恪守“睿意劲取，匠心所致”的企业精神，谨记优良品质匠心创造才是企业生存及发展的唯一途径。不断加强企业管理、提高产品品质和质量、注重科技创新和传统中医理念相结合，强化市场营销、注重品牌形象，致力于打造一个有继承和传承的可持续健康发展的新型高新技术企业。
+                        </p>
+                    </div>
+                    <div class="about-link">
+                        <a href="<%linkurl("content","about")%>" title="关于我们">查看更多>></a>
+                    </div>
+                </div>
+                <div class="col-md-6 about-video"><embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=c0508tuzval&auto=0" allowFullScreen="true" quality="high" width="610" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+            </div>
+        </div>
+    </div>
+    <div class="met-index-service met-index-body">
+        <div class="container">
+            <h3 class="appear-no-repeat animation-slide-top" data-repeat="false">益正文化</h3>
+            <p class="desc appear-no-repeat animation-fade" data-repeat="false">—— Culture ——</p>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">益正天地 道和阴阳 睿意劲取 匠心所致</p>
+            <div class="slider slick-initialized slick-slider animation-slide-bottom appear-no-repeat" data-plugin="appear" data-animate="slide-bottom" data-repeat="false" id="serviceSlick" data-show="1 2 4 4 ">
+                <div aria-live="polite" class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1280px; transform: translate3d(0px, 0px, 0px);" role="listbox">
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 270px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="益正天地" tabindex="0">
+                                <img class="img-responsive" alt="益正天地" src="<%templateskin%>/images/16a3064acc360ca97c6715d2d5fd9407.png" />
+                                <h4>益正天地</h4>
+                                <p>益正人要效法天地益养一身之正气，使人体与天地相应，法于自然王道，而通天地人三才。通过益正研发的系列产品及所传播的养生文化理念，而使人身修养身正，气血相通，而正气相存，以达养生保健防患之效。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 270px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="道和阴阳" tabindex="0">
+                                <img class="img-responsive" alt="道和阴阳" src="<%templateskin%>/images/dao.png">
+                                <h4>道和阴阳</h4>
+                                <p>益正养生之道要平衡于阴阳，调节人体气血充盈，在平常生活之间即可起到养生保健之效。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 270px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="睿意劲取" tabindex="0">
+                                <img class="img-responsive" alt="睿意劲取" src="<%templateskin%>/images/rui.png">
+                                <h4>睿意劲取</h4>
+                                <p>以睿智、明智、领悟，巧取智慧的真谛，以“与其救疗于有疾之后，不若摄养于无疾之先”来领悟真正最高养生之道。</p>
+                            </a>
+                        </div>
+                        <div class="service_item slick-slide slick-current slick-active" style="width: 270px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
+                            <a href="#" title="匠心所致" tabindex="0">
+                                <img class="img-responsive" alt="匠心所致" src="<%templateskin%>/images/jiang.png">
+                                <h4>匠心所致</h4>
+                                <p>工匠精神，精雕细琢每一款产品，益正所有之产品均以工匠精神，以达正气相存，心物相应，为人类的健康养生而精心细制。</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-news met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false">新闻资讯</h3>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">—— NEWS ——</p>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false"></p>
+            <ul class="blocks-2" data-scale="0.6">
+                <%set DataTable focusNews=get_article_list("news", 8, "status=0")%>
+                <%foreach(DataRow dr in focusNews.Rows)%>
+                <li class="animation-slide-bottom appear-no-repeat" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <div class="media media-lg">
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="<%linkurl("news_show",{dr[id]})%>" title="{dr[title]}" target="_self">
+                                    {dr[title]}
+                                </a>
+                            </h4>
+                            <p class="des">{dr[zhaiyao]}.....</p>
+                            <p class="info">
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <%/foreach%>
+            </ul>
+            <a href="<%linkurl("news")%>" class="more" title="资讯中心" target="_self"></a>
+        </div>
+    </div>
+    <!--页面底部-->
+    <%template src="_footer.html"%>
+    <!--/页面底部-->
+</body>
+</html>

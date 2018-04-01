@@ -1,0 +1,110 @@
+﻿<!--header begin-->
+<div class="h_box">
+    <div class="header">
+        <div class="header_inner inheader_inner">
+            <a href="<%linkurl("index")%>" class="logo"><img src="<%templateskin%>/images/logo.png" /></a>
+        </div>
+        <div class="nav">
+            <div class="nav_inner fixed">
+                <ul class="fixed">
+                    <li> <a class="flevel" href="<%linkurl("index")%>">首页</a></li>
+                    <li> <a class="flevel" href="<%linkurl("content","about")%>">关于益正</a></li>
+                    <li> <a class="flevel" href="<%linkurl("goods")%>">旗下产品</a></li>
+                    <li> <a class="flevel" href="<%linkurl("news")%>">新闻资讯</a></li>
+                    <li> <a class="flevel" href="/jiameng.html">招商政策</a></li>
+                    <li> <a class="flevel" href="/news/3.html">文化益正</a></li>
+                    <li> <a class="flevel" href="<%linkurl("jobs","sales")%>">人才招聘</a></li>
+                    <li> <a class="flevel" href="<%linkurl("content","contact")%>">联系我们</a></li>
+                </ul>
+            </div>
+
+            <!--品牌-->
+            <div class="drop hidden"> </div>
+            <!--品牌-->
+            <!--品牌-->
+            <div class="drop hidden">
+                <div class="sub_nav_brand">
+                    <!--img-size:190*160-->
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/index.html"><img src="http://www.lzlj.com/upload/contents/2016/01/56a855353a189.png" alt="国窖1573" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/index.html"> 国窖1573</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/index_143.html"><img src="http://www.lzlj.com/upload/tq.png" alt="特曲" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/index_143.html"> 特曲</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/index_160.html"><img src="http://www.lzlj.com/upload/jlj.png" alt="窖龄酒" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/index_160.html"> 窖龄酒</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/index_177.html"><img src="http://www.lzlj.com/upload/toq.png" alt="头曲" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/index_177.html"> 头曲</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/index_194.html"><img src="http://www.lzlj.com/upload/eq.png" alt="" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/index_194.html"> 二曲</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http//www.lzlj.com/brand/list_109.html"><img src="http://www.lzlj.com/upload/contents/2014/07/53bb60ef7172e.png" alt="养生酒" onerror="lod(this)" /></a></dt>
+                        <dd><a href="http//www.lzlj.com/brand/list_109.html"> 养生酒</a></dd>
+                    </dl>
+
+                </div>
+            </div>
+            <!--品牌-->
+
+        </div>
+    
+        <div class="search-box">
+            <div class="input-box">
+                <input id="keywords" name="keywords" type="text" onkeydown="if(event.keyCode==13){SiteSearch('<%linkurl("search")%>', '#keywords');return false};" placeholder="输入关健字" x-webkit-speech="" />
+                <a href="javascript:;" onclick="SiteSearch('<%linkurl("search")%>', '#keywords');">
+                    <i class="iconfont icon-search"></i>
+                </a>
+            </div>
+            <ul class="hotkeyword">
+                <h4>热门关键词：</h4>
+                <li><a href="search.html?keyword=睿劲">睿劲</a></li>
+                <li><a href="search.html?keyword=玖护士">玖护士</a></li>
+                <li><a href="search.html?keyword=道阳">道阳</a></li>
+                <li><a href="search.html?keyword=文化">文化</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--header end--> 
+<script type="text/javascript">
+    $(function () {
+        /*获取页面的可视width、height*/
+        var bodyHeight = document.body.offsetHeight;
+        var bodyWidth = document.body.offsetWidth;
+        $(".search-box").css('left', (bodyWidth - 860) / 2 + 'px');
+    });
+
+    //$(document).ready(function () {
+    //    var num;
+    //    var times;
+    //    $(".nav li:gt(0)").hover(function () {
+    //        num = $(".nav li").index(this);
+    //        clearTimeout(times);
+    //        $(".drop").stop(false, true).slideUp(600);
+    //        $(".drop").eq(num).stop(true, true).slideDown(600);
+    //    }, function () {
+    //        times = setTimeout(function () {
+    //            $(".drop").eq(num).stop(false, true).slideUp(600)
+    //        }, 200);
+    //    });
+    //    $(".drop").hover(
+    //         function () {
+    //             clearTimeout(times);
+    //             $(this).show()
+    //         }, function () {
+    //             var $this = $(this);
+    //             times = setTimeout(function () {
+    //                 $this.stop(false, true).slideUp(600)
+    //             }, 200);
+
+    //         });
+    //})
+</script>

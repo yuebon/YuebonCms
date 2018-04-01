@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "插件", "插件", "{7FCBC2D5-196D-46A7-9446-4FE4EFAD5959}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Web.Plugin.Advert", "插件\广告管理插件MSSQL源码\源码\advert\YueBonSoft.Web.Plugin.Advert.csproj", "{572E3093-A353-4C12-BC4B-18C4EDB27591}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Web.Plugin.Link", "插件\友情链接插件MSSQL源码\源码\YueBonSoft.Web.Plugin.Link.csproj", "{33428340-8B9D-48F2-AC29-A2A8D6695DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Web.Plugin.Feedback", "插件\在线留言插件MSSQL源码\源码\YueBonSoft.Web.Plugin.Feedback.csproj", "{A32411D0-1B69-47A9-AC5C-E7E31D5C297B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.API", "YueBonSoft.API\YueBonSoft.API.csproj", "{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.BLL", "YueBonSoft.BLL\YueBonSoft.BLL.csproj", "{73366DEF-CD64-45BF-B887-C37EA39BE824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Common", "YueBonSoft.Common\YueBonSoft.Common.csproj", "{408686E7-0249-4899-85E0-77ACA8F9F07F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.DAL", "YueBonSoft.DAL\YueBonSoft.DAL.csproj", "{47CBAEAD-C247-47B5-8FD7-DDF548A7C812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.DBUtility", "YueBonSoft.DBUtility\YueBonSoft.DBUtility.csproj", "{E9FE3D7F-2FB9-4C49-9A67-2843EC82EBE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Model", "YueBonSoft.Model\YueBonSoft.Model.csproj", "{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Web", "YueBonSoft.Web\YueBonSoft.Web.csproj", "{9CC47411-6931-4106-8A34-FB46D26AA8D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YueBonSoft.Web.UI", "YueBonSoft.Web.UI\YueBonSoft.Web.UI.csproj", "{091D59DA-1EDB-4325-984D-F3B5547F781E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{572E3093-A353-4C12-BC4B-18C4EDB27591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572E3093-A353-4C12-BC4B-18C4EDB27591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572E3093-A353-4C12-BC4B-18C4EDB27591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572E3093-A353-4C12-BC4B-18C4EDB27591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33428340-8B9D-48F2-AC29-A2A8D6695DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33428340-8B9D-48F2-AC29-A2A8D6695DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33428340-8B9D-48F2-AC29-A2A8D6695DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33428340-8B9D-48F2-AC29-A2A8D6695DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32411D0-1B69-47A9-AC5C-E7E31D5C297B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32411D0-1B69-47A9-AC5C-E7E31D5C297B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32411D0-1B69-47A9-AC5C-E7E31D5C297B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32411D0-1B69-47A9-AC5C-E7E31D5C297B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73366DEF-CD64-45BF-B887-C37EA39BE824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73366DEF-CD64-45BF-B887-C37EA39BE824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73366DEF-CD64-45BF-B887-C37EA39BE824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73366DEF-CD64-45BF-B887-C37EA39BE824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408686E7-0249-4899-85E0-77ACA8F9F07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408686E7-0249-4899-85E0-77ACA8F9F07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408686E7-0249-4899-85E0-77ACA8F9F07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408686E7-0249-4899-85E0-77ACA8F9F07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47CBAEAD-C247-47B5-8FD7-DDF548A7C812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CBAEAD-C247-47B5-8FD7-DDF548A7C812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CBAEAD-C247-47B5-8FD7-DDF548A7C812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CBAEAD-C247-47B5-8FD7-DDF548A7C812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FE3D7F-2FB9-4C49-9A67-2843EC82EBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FE3D7F-2FB9-4C49-9A67-2843EC82EBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FE3D7F-2FB9-4C49-9A67-2843EC82EBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FE3D7F-2FB9-4C49-9A67-2843EC82EBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC47411-6931-4106-8A34-FB46D26AA8D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC47411-6931-4106-8A34-FB46D26AA8D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC47411-6931-4106-8A34-FB46D26AA8D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC47411-6931-4106-8A34-FB46D26AA8D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091D59DA-1EDB-4325-984D-F3B5547F781E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091D59DA-1EDB-4325-984D-F3B5547F781E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091D59DA-1EDB-4325-984D-F3B5547F781E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091D59DA-1EDB-4325-984D-F3B5547F781E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{572E3093-A353-4C12-BC4B-18C4EDB27591} = {7FCBC2D5-196D-46A7-9446-4FE4EFAD5959}
+		{33428340-8B9D-48F2-AC29-A2A8D6695DBA} = {7FCBC2D5-196D-46A7-9446-4FE4EFAD5959}
+		{A32411D0-1B69-47A9-AC5C-E7E31D5C297B} = {7FCBC2D5-196D-46A7-9446-4FE4EFAD5959}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BF97780-8526-4A87-B585-4ABBDECDEC52}
+	EndGlobalSection
+EndGlobal

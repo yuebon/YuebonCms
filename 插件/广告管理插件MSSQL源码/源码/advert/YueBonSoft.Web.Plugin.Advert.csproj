@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{572E3093-A353-4C12-BC4B-18C4EDB27591}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YueBonSoft.Web.Plugin.Advert</RootNamespace>
+    <AssemblyName>YueBonSoft.Web.Plugin.Advert</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\adv_list.aspx.cs">
+      <DependentUpon>adv_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adv_list.aspx.designer.cs">
+      <DependentUpon>adv_list.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adv_edit.aspx.cs">
+      <DependentUpon>adv_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adv_edit.aspx.designer.cs">
+      <DependentUpon>adv_edit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin\bar_list.aspx.cs">
+      <DependentUpon>bar_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\bar_list.aspx.designer.cs">
+      <DependentUpon>bar_list.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin\bar_edit.aspx.cs">
+      <DependentUpon>bar_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\bar_edit.aspx.designer.cs">
+      <DependentUpon>bar_edit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adv_view.aspx.cs">
+      <DependentUpon>adv_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adv_view.aspx.designer.cs">
+      <DependentUpon>adv_view.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="advert_js.ashx.cs">
+      <DependentUpon>advert_js.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\advert.cs" />
+    <Compile Include="BLL\advert_banner.cs" />
+    <Compile Include="DAL\advert.cs" />
+    <Compile Include="DAL\advert_banner.cs" />
+    <Compile Include="Model\advert.cs" />
+    <Compile Include="Model\advert_banner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="advert_js.ashx" />
+    <None Include="plugin.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\adv_list.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="admin\adv_edit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="admin\bar_list.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="admin\bar_edit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="admin\adv_view.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="css\focus.css" />
+    <Content Include="js\jquery.flexslider-min.js" />
+    <Content Include="player.swf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.BLL\YueBonSoft.BLL.csproj">
+      <Project>{73366def-cd64-45bf-b887-c37ea39be824}</Project>
+      <Name>YueBonSoft.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.Common\YueBonSoft.Common.csproj">
+      <Project>{408686e7-0249-4899-85e0-77aca8f9f07f}</Project>
+      <Name>YueBonSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.DAL\YueBonSoft.DAL.csproj">
+      <Project>{47cbaead-c247-47b5-8fd7-ddf548a7c812}</Project>
+      <Name>YueBonSoft.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.DBUtility\YueBonSoft.DBUtility.csproj">
+      <Project>{e9fe3d7f-2fb9-4c49-9a67-2843ec82ebe9}</Project>
+      <Name>YueBonSoft.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.Model\YueBonSoft.Model.csproj">
+      <Project>{2bbc90cb-5d42-4f0f-bf96-4da42f4ddb39}</Project>
+      <Name>YueBonSoft.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\YueBonSoft.Web.UI\YueBonSoft.Web.UI.csproj">
+      <Project>{091d59da-1edb-4325-984d-f3b5547f781e}</Project>
+      <Name>YueBonSoft.Web.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <%set string category_title=get_category_title(model.category_id,"资源下载")%>
+    <%set string strTitle=model.title%>
+    <%if(model.seo_title!="")%>
+    <%set strTitle=model.seo_title%>
+    <%/if%>
+    <title>{strTitle} - {category_title} - {site.name}</title>
+    <meta name="keywords" content="{model.seo_keywords}" />
+    <meta name="description" content="{model.seo_description}" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap-extend.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/site.min.css" />
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{config.webpath}scripts/artdialog/ui-dialog.css" />
+<script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/artdialog/dialog-plus-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+</head>
+
+<body id="down">
+<!--页面头部-->
+<%template src="_header.html"%>
+<!--/页面头部-->
+
+<div class="met-banner-ny vertical-align text-center animation-slide-top" data-animate="slide-bottom" style="background-color:;">
+    <h1 class="vertical-align-middle">资料下载</h1>
+</div>
+<!--当前位置-->
+<div class="met-position  pattern-show animation-slide-top" data-animate="slide-bottom">
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="<%linkurl("index")%>" title="首页">
+                        <i class="icon fa-home" aria-hidden="true"></i>首页
+                    </a>
+                </li>
+                <li>
+                    <a href="<%linkurl("down")%>">资源下载</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<section class="met-shownews animsition">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 met-news-body">
+                <div class="row">
+                    <div class="met-shownews-header animation-slide-top" data-animate="slide-bottom">
+                        <h1>{model.title}</h1>
+                        <div class="info">
+                            <span>{model.add_time}</span>
+                            <span><i class="iconfont fa-comment"></i>
+                            <script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_comment_count&channel_id={model.channel_id}&id={model.id}"></script>人评论</span>
+                            <span><i class="iconfont fa-eye"></i>
+                            <script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_article_click&channel_id={model.channel_id}&id={model.id}&click=1"></script>次</span>
+                        </div>
+                    </div>
+                    <div class="met-editor lazyload clearfix animation-slide-top" data-animate="slide-bottom">
+                        <div class="note">
+                            <p>{model.zhaiyao}</p>
+                        </div>
+                        <div>{model.content}</div>
+                        <div class="center-block met_tools_code"></div>
+                        
+            <div class="attach-list clearfix">
+                <h2 class="slide-tit">
+                    <span>附件下载</span>
+                </h2>
+                <ul>
+                <%if(model.attach!=null)%>
+                <%foreach(YueBonSoft.Model.article_attach modelt in model.attach)%>
+                    <li>
+                        <a class="link-btn" href="javascript:;" onclick="downLink({modelt.point},'{config.webpath}tools/download.ashx?site={site.build_path}&id={modelt.id}');">
+                            <i class="iconfont fa-download"></i>下载
+                        </a>
+                        <div class="icon-box">
+                            <i class="iconfont icon-attach"></i>
+                        </div>
+                        <div class="info">
+                            <h3>{modelt.file_name}</h3>
+                            <p>
+                                <span>文件类型：{modelt.file_ext}</span>
+                                <span>
+                                    大小：
+                                    <%if {modelt.file_size}>1024%>
+                                        <%csharp%>
+                                            string tempSize = (modelt.file_size/1024f).ToString("#.##");
+                                        <%/csharp%>
+                                        {tempSize}MB
+                                    <%else%>
+                                        {modelt.file_size}KB
+                                    <%/if%>
+                                </span>
+                                <span>下载：<script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_attach_count&id={modelt.id}"></script>次</span>
+                                <span>所需积分：{modelt.point}</span>
+                            </p>
+                        </div>
+                    </li>
+                <%/foreach%>
+                <%/if%>
+                </ul>
+            </div>
+                    </div>                    
+                    <!--/上下一条-->
+                    <div class="met-shownews-footer">
+						<ul class="pager pager-round">
+							<li class="previous ">
+                                <%=get_prevandnext_article("down_show", -1, "没有了", 0)%>
+							</li>
+							<li class="next">
+								<%=get_prevandnext_article("down_show", 1, "没有了", 0)%>
+							</li>
+						</ul>
+					</div>
+                    <!--上下一条-->
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="met-news-bar">
+                       <form class="form-group">
+                           <div class="input-search">
+                               <input id="keywords" name="keywords"  class="form-control" onkeydown="if(event.keyCode==13){SiteSearch('<%linkurl("search")%>', '#keywords');return false};" placeholder="输入关健字" type="text">
+                               <button type="button" onclick="SiteSearch('<%linkurl("search")%>', '#keywords');" class="input-search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                           </div>
+                        </form>
+                        <div class="recommend news-list-md animation-slide-top" data-animate="slide-bottom">
+                            <h3>人气排行</h3>
+                            <ul class="list-group list-group-bordered">
+                                <%set DataTable hotDown=get_article_list(channel, 0, 10, "status=0", "click desc,id desc")%>
+                                <%loop hotdr hotDown%>
+                                <li class="list-group-item"><a href="<%linkurl("down_show",{hotdr[id]})%>" title="{hotdr[title]}" target='_self'>{hotdr[title]}</a></li>
+                                <%/loop%>
+                            </ul>
+                        </div>
+                        <div class="recommend news-list-md animation-slide-top" data-animate="slide-bottom">
+                            <h3>新闻资讯</h3>
+                            <ul class="column">
+                                <%set DataTable categoryList=get_category_child_list("news",0)%>
+                                <%foreach(DataRow cdr in categoryList.Rows)%>
+                                <li><a href="<%linkurl("news_list",{cdr[id]})%>" title="{cdr[title]}" target='_self'><i class="fa fa-angle-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;{cdr[title]}</a></li>
+                                <%/foreach%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--页面底部-->
+<%template src="_footer.html"%>
+<!--/页面底部-->
+</body>
+</html>

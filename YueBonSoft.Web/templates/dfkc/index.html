@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>{site.seo_title}</title>
+<meta name="keywords" content="{site.seo_keyword}" />
+<meta name="description" content="{site.seo_description}" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/idangerous.swiper.css" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/zepto.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/weui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/idangerous.swiper-2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        //选中Tab
+        $(".weui-tabbar a").eq(0).addClass("weui-bar__item_on");
+    });
+</script>
+</head>
+
+<body ontouchstart>
+<div class="page">
+    <!--页面头部-->
+    <%template src="_header.html"%>
+    <!--/页面头部-->
+  
+    <!--页面内容-->
+    <div class="page__bd">
+        <div class="weui-panel__hd">
+            最新货源：
+            <%set DataTable focusList=get_article_list("goodsopportunity", 0, 1, "status=0")%>
+            <%foreach(DataRow dr in focusList.Rows)%>
+            <a href="<%linkurl("goodsopportunity_show",{dr[id]},"1")%>">{dr[title]}</a>
+            <%/foreach%>
+        </div>
+        <!--首页图标导航-->
+        <div class="function">
+            <a href="<%linkurl("lineselect")%>" class="w31 f1">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-yunshuzhongwuliu-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">专线查询</p>
+            </a>
+            <a href="/goodsopportunity/0.html" class="w31 f2">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-chaibaoguoqujian-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">货源查询</p>
+            </a>
+            <a href="<%linkurl("usergoodsopportunity_edit","add")%>" class="w31 f3">
+                <div class="weui-grid__icon">
+                    <i class="iconfont icon-edit"></i>
+                </div>
+                <p class="weui-grid__label">货源发布</p>
+            </a>
+            <a href="http://m.56kc.cn/ProfessionalShunting/ProfessionalShuntingList" class="w23 f4">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-yunshuzhongwuliu-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">整车运输</p>
+            </a>
+            <a href="http://m.56kc.cn/ShortCityHauling/ShortCityHaulingList" class="w23 f5">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-jijianfasong-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">市内短驳</p>
+            </a>
+            <a href="http://m.56kc.cn/VenueForLease/VenueForLeaseList" class="w23 f6">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-moduanwangdian-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">场地招租</p>
+            </a>
+            <a href="http://m.56kc.cn/JobRecruitment/JobRecruitmentList" class="w23 f7">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-hezuoguanxi-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">求职招聘</p>
+            </a>
+            <a href="http://mp.weixin.qq.com/s/BbdVwb0CNkr0MdFo9grAmg" class="w31 f8">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-qiyeyuanquwuye-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">公司注册</p>
+            </a>
+            <a href="#" class="w31 f9">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-zhangdan-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">代理记账</p>
+            </a>
+            <a href="http://mp.weixin.qq.com/s/IMT4bi_T3jSDgJxwMvYEGg" class="w31 f10">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-caiwu-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">融资贷款</p>
+            </a>
+
+            <a href="http://mp.weixin.qq.com/s/KfAxSmVriDLn4u6nrdmZhQ" class="w23 f11">
+                <div class="weui-grid__icon">
+                    <i class="iconfont icon-pic"></i>
+                </div>
+                <p class="weui-grid__label">VI设计</p>
+            </a>
+            <a href="http://mp.weixin.qq.com/s/t2WBo8h6ZBV1EyOz-S3brQ" class="w23 f12">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-jiesuan-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">商标注册</p>
+            </a>
+            <a href="#" class="w23 f13">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-anquanbaozhang-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">综合保险</p>
+            </a>
+            <a href="#" class="w23 f14">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-tijikongjian-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">物流培训</p>
+            </a>
+
+            <a href="http://m.56kc.cn/LinePublishSite/LinePublishSite" class="w48 f14">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-moduanwangdian-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">站点查询</p>
+            </a>
+
+            <a href="http://m.56kc.cn/LogisticsLawyer/LogisticMatigService" class="w48 f15">
+                <div class="weui-grid__icon">
+                    <i class="iconfontx iconx-chaibaoguoqujian-xianxing"></i>
+                </div>
+                <p class="weui-grid__label">更多服务</p>
+            </a>
+        </div>
+        <!--/首页图标导航-->
+        <!--版权信息-->
+        <%template src="_copyright.html"%>
+        <!--/版权信息-->
+        <!--底部导航-->
+        <%template src="_footer.html"%>
+        <!--/底部导航-->
+    </div>
+    <!--/页面内容-->
+</div>
+</body>
+</html>

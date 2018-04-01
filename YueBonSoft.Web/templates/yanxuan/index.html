@@ -1,0 +1,342 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>{site.seo_title}</title>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="keywords" content="{site.seo_keyword}" />
+    <meta name="description" content="{site.seo_description}" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap-extend.min.css" />
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel2-2.2.1/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/breakpoints.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/swiper/js/swiper.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel2-2.2.1/owlcarousel2-2.2.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: true
+            });
+
+            Breakpoints();
+            if ($(".met-index-service .services-box").length && $(".met-index-service .services-box img[data-original]").lazyload({
+                threshold: 300,
+                effect: "fadeIn"
+            }), $(".met-index-product").length && scrollFun($(".met-index-product"), 300,
+                function () {
+                    $(".met-index-product .owl-carousel").owlCarousel({
+                    loop: !0,
+                    margin: 10,
+                    nav: !0,
+                    lazyLoad: !0,
+                    dots: !1,
+                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                    autoplay: !0,
+                    autoplayTimeout: 3e3,
+                    autoplayHoverPause: !0,
+                    responsive: {
+                            0: {
+                    items: 1
+                },
+                            767: {
+                    items: 1
+                },
+                            970: {
+                    items: 2
+                },
+                            1024: {
+                    items: 3
+                },
+                            1200: {
+                    items: 4
+                }
+                }
+                })
+            }));
+            
+
+            if ($(".met-index-case").length) {
+                Breakpoints.get("xs").on({
+                    enter: function () {
+                        if (!$(".met-index-case .nav-tabs").parent().hasClass("swiper-container")) {
+                            $(".met-index-case .nav-tabs").addClass("swiper-wrapper").wrap('<div class="swiper-container"></div>').find(">li").addClass("swiper-slide").css("width", "auto");
+                            new Swiper(".swiper-container", {
+                                slidesPerView: "auto"
+                            });
+                            $(".met-index-case .nav-tabs").width(sonWidthSum(".met-index-case .nav-tabs>li") + 5)
+                        }
+                    }
+                });
+                var t = ".met-index-case .blocks",
+                e = ".met-index-case .nav-tabs li";
+                $(t + " [data-original]").lazyload({
+                    threshold: 300,
+                    effect: "fadeIn",
+                    skip_invisible: !0
+                }),
+                IsotopeNum(t, e),
+                removeImageSize(t + " [data-original]",
+                function () {
+                    $(e + ".active a").trigger("click")
+                })
+            }
+        })
+    </script>
+</head>
+
+<body id="index" class="yue-navfixed">
+<!--[if lte IE 8]>
+    <div class="text-center padding-top-50 padding-bottom-50 bg-blue-grey-100">
+    <p class="browserupgrade font-size-18">你正在使用一个<strong>过时</strong>的浏览器。请<a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以提高您的体验。</p>
+    </div>
+<![endif]-->
+    
+<div id="page">
+<!--页面头部-->
+<%template src="_header.html"%>
+<!--/页面头部-->
+<script type="text/javascript" src="/plugins/advert/advert_js.ashx?id=1"></script>
+    <div class="met-index-service met-index-body">
+        <div class="container services-bg">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="#" title="我们的产品" target='_self'>主要服务行业</a></h3>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们为不同行业提供专业的产品以及服务</p>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 animation-slide-top" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <a href="/goods/40.html" title="汽车行业配套产品" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/qiche.jpg" src="<%templateskin%>/images/qiche.jpg" title="汽车行业配套产品" alt="汽车行业配套产品">
+                            <div class="content">
+                                <h4>汽车行业配套产品</h4>
+                                <p>延轩模具在汽车行业配套产品有中控、脚踏板、仪表盘、安全带扣、方向盘等相关模具。</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/goods/42.html" title="管路产品" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/guanlu.jpg" src="<%templateskin%>/images/guanlu.jpg" title="管路产品" alt="管路产品">
+                            <div class="content">
+                                <h4>管路产品</h4>
+                                <p>延轩模具在管路产品设计、制造管件模具，为客户提供最具有竞争力的管件模具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='col-lg-6 col-md-12'>
+                    <a href="/goods/41.html" title="家电产品" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/jiadian.jpg" src="<%templateskin%>/images/jiadian.jpg" title="家电产品" alt="家电产品">
+                            <div class="content">
+                                <h4>家电产品</h4>
+                                <p>延轩模具在家电行业配套产品有电视机部件、电吹风、空气净化器部件等模具</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/goods/52.html" title="电子产品" target='_self'>
+                        <div class="services-box">
+                            <img data-original="<%templateskin%>/images/thumb_002.jpg" src="<%templateskin%>/images/thumb_002.jpg" title="电子产品" alt="电子产品">
+                            <div class="content">
+                                <h4>电子产品</h4>
+                                <p>延轩模具在电子产品配套产品有铝型材机箱外壳、铝型材散热器、钣金机箱、机柜、塑胶外壳、铝合金及塑胶密封箱等</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-product met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods/53.html" title="主要模具" target='_self'>主要模具</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们有丰富的模具，为客户提供优质模具产品。</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="owl-carousel  animation-slide-bottom" data-animate="slide-bottom">
+                        <%set DataTable redList=get_article_list("goods", 53, 10, "status=0 and is_red=1")%>
+                        <%loop reddr redList%>
+                        <li class="project-item ">
+                            <a href="<%linkurl("goods_show",{reddr[id]})%>" title="{reddr[title]}" target='_self'>
+                                <div class="project-img">
+                                    <img class="owl-lazy" data-src="{reddr[img_url]}" src="{reddr[img_url]}" alt="{reddr[title]}" class="cover-image">
+                                </div>
+                                <div class="project-intro">
+                                    <h4 class="project-title">{reddr[title]}</h4>
+                                    <div class="project-descr">{reddr[zhaiyao]}</div>
+                                </div>
+                            </a>
+                        </li>
+                        <%/loop%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-case met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods.html" title="热门产品" target='_self'>热门产品</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们公司的热门模具产品</p>
+        </div>
+        <ul class="nav nav-tabs animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+            <li class="active">
+                <a href="#caselist" title="全部" data-toggle="tab" data-num='5' data-filter="*">全部</a>
+            </li>
+            <li>
+                <a href="#caselist" title="汽车行业配套产品" data-toggle="tab" data-filter="list_40">汽车行业配套产品</a>
+            </li>
+            <li>
+                <a href="#caselist" title="家电产品" data-toggle="tab" data-filter="list_41">家电产品</a>
+            </li>
+            <li>
+                <a href="#caselist" title="管路产品" data-toggle="tab" data-filter="list_42">管路产品</a>
+            </li>
+            <li>
+                <a href="#caselist" title="电子产品" data-toggle="tab" data-filter="list_52">电子产品</a>
+            </li>
+        </ul>
+
+        <ul class="blocks no-space blocks-xlg-5 blocks-md-5 blocks-sm-3 blocks-xs-2" id="caselist">
+            <%set DataTable hotList=get_article_list("goods", 10, "status=0 and is_hot=1 and category_id in(40,41,42,52)")%>
+            <%loop hotdr hotList%>
+            <li data-type="list_{hotdr[category_id]}" class="project-item">
+                <div class="widget widget-shadow">
+                    <figure class="widget-header cover">
+                        <a href="<%linkurl("goods_show",{hotdr[id]})%>" title="{hotdr[title]}" target='_self'>
+                            <div class="project-img">
+                                <img data-original="{hotdr[img_url]}" src="{hotdr[img_url]}"  alt="{hotdr[title]}" width="400" height="350" class="cover-image">
+                            </div>
+                            <div class="project-intro">
+                                <h4 class="project-title">{hotdr[title]}</h4>
+                                <div class="project-descr">{hotdr[zhaiyao]}</div>
+                            </div>
+                        </a>
+                    </figure>
+                </div>
+            </li>
+            <%/loop%>
+        </ul>
+    </div>
+
+    <div class="met-index-about met-index-body">
+        <div class="container-fluid">
+            <div class="left_side animation-slide-top" data-animate="slide-top" data-bg="<%templateskin%>/images/1479211597.jpg" bg-repeat="false" style='background-image: url("<%templateskin%>/images/1479211597.jpg");'>
+                <div class="we_are_opacity">
+                    <div class="we_are_border">
+                        <h2>关于我们</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="right_side animation-slide-top" data-animate="slide-top" data-plugin="appear" data-repeat="false">
+                <div class="we_are_deatails">
+                    <h2><a href="about/1-cn.html" title="公司简介" target='_self'>公司简介</a></h2>
+                    <p>
+                    <p>上海延轩精密模具有限公司成立于2011年8月，是一家专业制造各类精密塑料模具的企业，一直致力于汽车产品，电脑周边产品，家电产品及电子产品设计与制造。</p>
+                    <p>本公司本着品质第一，客户满意为质量方针，利用雄厚的技术基础，多年的模具制造经验，精良的生产工艺，先进的加工设备，积极探索市场，追求卓越品质。秉承“稳定，和谐，热忱，效率”的精神。品质意识的不断提高的今天，公司不断引进先进的技术和机械设备。广纳技术人才，力求在模具技术上持续创新，使公司不断进步和持续发展，市场只提供机会，品质才是公司赖以生存的命脉。我司始终如一坚持“选择我们，共同受益”的经营理念。</p>
+
+                    <p>我们将始终坚持："质量第一、客户至上、严守信誉、服务社会"的宗旨，为中国模具事业的发展做出贡献。</p>
+                    <p><strong>我们的愿景：</strong>创造模具行业卓越品牌。</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-bottomcontact met-index-body">
+        <div class="container">
+            <div class="row">
+                <div class="partner col-lg-12 col-md-12">
+                    <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="hezuo/list-39-cn.html" title="合作伙伴" target='_self'>合作伙伴</a></h3>
+                    <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false"> 欢迎更多的公司成为我们的合作伙伴</p>
+                    <div class="row">
+                        <ul class="partnerli">
+                            <%set DataTable hotPartnerList=get_article_list("partner", 30, "status=0 and is_hot=1")%>
+                            <%loop prdr hotPartnerList%>
+                            <li class="col-lg-1 col-md-2  col-sm-2 col-xs-3"><a href="#" title="{prdr[title]}" target='_self' class="met-img"><img src="{prdr[img_url]}" title="{prdr[title]}" alt="{prdr[title]}"></a></li>
+                            <%/loop%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="met-index-cases met-index-body" data-bg="<%templateskin%>/images/cases_bg.jpg" style="background-image:url(<%templateskin%>/images/cases_bg.jpg);" bg-repeat="false">
+        <div class="container">
+            <div class="owl-carousel" data-plugin="appear" data-animate="fade" data-repeat="false">
+                <%set DataTable redCaseList=get_article_list("case", 9, "status=0 and is_red=1")%>
+                <%loop casedr redCaseList%>
+                <div class="item">
+                    <div class="testimonials">
+                        <div class="testimonials-content">
+                            <h3>{casedr[title]}</h3>
+                            <p>{casedr[zhaiyao]}</p>
+                        </div>
+                        <div class="testimonials-author">
+                            <img class="owl-lazy" data-src="{casedr[img_url]}" src="{casedr[img_url]}" title="{casedr[title]}" alt="{casedr[title]}" height="350">
+                            <span class="t-mgr30">{casedr[source]} </span>
+                        </div>
+                    </div>
+                </div>
+                <%/loop%>
+            </div>
+        </div>
+    </div>
+    <div class="met-index-news met-index-body">
+        <div class="container">
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="<%linkurl("news")%>" title="新闻中心" target='_self'>新闻中心</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">最新行业资讯和延轩动态</p>
+
+            <div class="row">
+                <%set DataTable newsList=get_article_list("news", 3, "status=0")%>
+                <%loop newsdr newsList%>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 single-blog-post" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
+                    <div class="img-holder">
+                        <img class="cover-image" data-original="{newsdr[img_url]}" src="{newsdr[img_url]}" alt="{newsdr[title]}" title="{newsdr[title]}" width="370" height="200">
+                        <div class="overlay">
+                            <a href="<%linkurl("news_show",{newsdr[id]})%>" title="{newsdr[title]}" target='_self'>
+                                <div class="overlays">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><span><%datetostr({newsdr[add_time]},yyyy-MM-dd)%></span></li>
+                        <li><p><i class="icon wb-eye margin-right-5" aria-hidden="true"></i>{newsdr[click]}</p></li>
+                    </ul>
+                    <a href="news/75-cn.html" title="{newsdr[title]}" target='_self'><h2>{newsdr[title]}</h2></a>
+                    <p>{newsdr[zhaiyao]}</p>
+                </div>
+                <%/loop%>
+            </div>
+        </div>
+    </div>
+
+<!--页面底部-->
+<%template src="_footer.html"%>
+<!--/页面底部-->
+
+</div>
+</body>
+</html>

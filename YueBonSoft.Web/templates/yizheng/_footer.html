@@ -1,0 +1,67 @@
+﻿<!--底部导航--->
+<div class="ecofootbg">
+    <div class="met-footnav-eco">
+        <div class="container">
+            <div class="row mob-masonry">
+                <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
+                    <h4>关于益正</h4>
+                    <ul>
+                        <%set DataTable ftaboutList=get_article_list("content", 10,"status=0")%>
+                        <%loop ftabdr ftaboutList%>
+                        <li><a href="<%linkurl("content",{ftabdr[call_index]})%>" target='_self' title="{ftabdr[title]}">{ftabdr[title]}</a></li>
+                        <%/loop%>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
+                    <h4>旗下产品</h4>
+                    <ul>
+                        <%set DataTable gdcaList=get_category_list("goods", 0)%>
+                        <%loop ftgdcadr gdcaList%>
+                        <li><a href="<%linkurl("goods",{ftgdcadr[call_index]})%>" target='_self' title="{ftgdcadr[title]}">{ftgdcadr[title]}</a></li>
+                        <%/loop%>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
+                    <h4>资讯中心</h4>
+                    <ul>
+                        <%set DataTable newscategoryList=get_category_child_list("news",0)%>
+                        <%foreach(DataRow fcdr in newscategoryList.Rows)%>
+                        <li><a href="<%linkurl("news_list",{fcdr[id]})%>" target='_self'  title="{fcdr[title]}">{fcdr[title]}</a></li>
+                        <%/foreach%>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
+                    <h4>其他</h4>
+                    <ul>
+                        <li><a href="<%linkurl("jiameng")%>" target='_self' title="招商政策">招商政策</a></li>
+                        <li><a href="<%linkurl("jobs","sales")%>" target='_self' title="加入我们">加入我们</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12 list  text-left masonry-item">
+                    <h4>联系我们</h4>
+                    <ul class="contact-info">
+                        <li><i class="icon fa-map-marker"></i>{site.address}</li>
+                        <li><i class="icon fa-phone"></i><a href="tel:{site.tel}" title="{site.tel}">{site.tel}</a></li>
+                        <li><i class="icon fa-envelope-o"></i>{site.email}</li>
+                        <li><i class="icon fa-globe"></i>{site.domain}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container text-center">
+            <p>{site.company}© 2016-{DTKeys.ASSEMBLY_YEAR} 版权所有,未经授权,禁止使用. </p>
+            <p>{site.copyright}</p>
+            <p>
+                <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow"><span style="font-family: 宋体;">备案号: {site.crod}</span></a>
+                {config.webcountcode}
+            </p>
+            <div class="powered_by_metinfo">Powered by YuebonInfo 3.0</div>
+        </div>
+    </footer>
+</div>
+<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top hide"><i class="icon fa-chevron-up" aria-hidden="true"></i></button>

@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <%set string category_title=get_category_title(model.category_id,"人才招聘")%>
+    <%set string strTitle=model.title%>
+    <%if(model.seo_title!="")%>
+    <%set strTitle=model.seo_title%>
+    <%/if%>
+    <title>{strTitle} - {site.name}</title>
+    <meta name="keywords" content="{model.seo_keywords}" />
+    <meta name="description" content="{model.seo_description}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimal-ui">
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/yueinfo.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+</head>
+
+<body id="{model.call_index}">
+    <!--页面头部-->
+    <%template src="_header.html"%>
+    <!--/页面头部-->
+
+    <img src="<%templateskin%>/images/banner-about.jpg" width="100%" />
+    <!--当前位置-->
+    <div class="section">
+        <div class="location">
+            <span>当前位置：</span>
+            <a href="<%linkurl("index")%>">首页</a> &gt;
+            <a href="javascript:;">{category_title}</a> &gt;
+            <a href="javascript:;">{model.title}</a>
+        </div>
+    </div>
+    <!--/当前位置-->
+    <!--导航推荐-->
+    <div class="section">
+        <div class="wrapper">
+            <div class="bg-wrap">
+                <div class="nav-tit">
+                    <%set DataTable contentList=get_article_list(channel, 0, 0, "status=0")%>
+                    <%loop cdr contentList%>
+                    <%if({strtoint({cdr[id]})}==model.id)%>
+                    <a class="selected" href="<%linkurl("content",{cdr[call_index]})%>">{cdr[title]}</a>
+                    <%else%>
+                    <a href="<%linkurl("jobs",{cdr[call_index]})%>">{cdr[title]}</a>
+                    <%/if%>
+                    <%if({cdr__loop__id}<contentList.Rows.Count)%>
+                        <i>|</i>
+                        <%/if%>
+                        <%/loop%>
+                </div>
+                <h1 style="padding:20px;line-height:30px;color:#c00;font-size:30px;text-align:center;font-weight:300;">{model.title}</h1>
+                <div class="entry">
+                    {model.content}
+                </div>
+                <div class="line15"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--页面底部-->
+    <%template src="_footer.html"%>
+    <!--/页面底部-->
+</body>
+</html>

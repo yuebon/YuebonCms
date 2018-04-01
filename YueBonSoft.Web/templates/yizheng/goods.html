@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>旗下产品 - {site.name}</title>
+<meta name="keywords" content="{site.seo_keyword}" />
+<meta name="description" content="{site.seo_description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/yueinfo.css" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+<script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("#focus-box").flexslider({
+        directionNav: false,
+		pauseOnAction: false
+	});
+});
+</script>
+</head>
+
+<body id="goods">
+<!--页面头部-->
+<%template src="_header.html"%>
+<!--/页面头部-->
+<img src="<%templateskin%>/images/goodsbanner.jpg" width="100%" />
+<!--当前位置-->
+<div class="section">
+    <div class="location">
+        <span>当前位置：</span>
+        <a href="<%linkurl("index")%>">首页</a> &gt;
+        <a href="<%linkurl("goods")%>">旗下产品</a>
+    </div>
+</div>
+<!--/当前位置-->
+<!--分类推荐-->
+<div class="met-product animsition type-1">
+	<div class="container">
+        <div class='row'>            
+           
+            <ul class="blocks-2 blocks-sm-2 blocks-md-3 blocks-xlg-3  met-page-ajax met-grid" id="met-grid" data-scale='0.625'>
+                <%set DataTable dt=get_article_list(channel, 6, "status=0")%>
+                <%foreach(DataRow dr in dt.Rows)%>
+                <li class="shown">
+					<div class="widget widget-shadow">
+						<figure class="widget-header cover">
+							<a href="<%linkurl("goods_show",{dr[id]})%>" title="{dr[title]}" target="_self">
+							<div class="mask">
+							</div>
+								<img class="cover-image" src="{dr[img_url]}" alt="{dr[title]}" style="">
+							</a>
+						</figure>
+						<h4 class="widget-title">
+							<a href="<%linkurl("goods_show",{dr[id]})%>" title="{dr[title]}" target="_self">{dr[title]}</a>
+							<p>价格：<b>¥{dr[sell_price]}</b>元</p>
+						</h4>
+					</div>
+				</li>
+                <%/foreach%>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--/分类推荐-->
+<!--页面底部-->
+<%template src="_footer.html"%>
+<!--/页面底部-->
+</body>
+</html>
