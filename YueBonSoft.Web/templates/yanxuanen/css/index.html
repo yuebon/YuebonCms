@@ -13,7 +13,7 @@
     <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/swiper/css/swiper.min.css" />
-    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel2-2.2.1/assets/owl.carousel.min.css" />
     <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/isotope.pkgd.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery.lazyload.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/swiper/js/swiper.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel2-2.2.1/owlcarousel2-2.2.1.js"></script>
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -44,8 +44,7 @@
             if ($(".met-index-service .services-box").length && $(".met-index-service .services-box img[data-original]").lazyload({
                 threshold: 300,
                 effect: "fadeIn"
-            }),
-            $(".met-index-product").length && scrollFun($(".met-index-product"), 300,
+            }), $(".met-index-product").length && scrollFun($(".met-index-product"), 300,
                 function () {
                     $(".met-index-product .owl-carousel").owlCarousel({
                     loop: !0,
@@ -55,58 +54,27 @@
                     dots: !1,
                     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                     autoplay: !0,
-                    autoplayTimeout: 1000,
+                    autoplayTimeout: 3e3,
                     autoplayHoverPause: !0,
                     responsive: {
-                        0: {
-                            items: 1
-                        },
-                                    767: {
-                            items: 1
-                        },
-                                    970: {
-                            items: 2
-                        },
-                                    1024: {
-                            items: 3
-                        },
-                                    1200: {
-                            items: 4
-                        }
-                    }
+                            0: {
+                    items: 1
+                },
+                            767: {
+                    items: 1
+                },
+                            970: {
+                    items: 2
+                },
+                            1024: {
+                    items: 3
+                },
+                            1200: {
+                    items: 4
+                }
+                }
                 })
-                    }),
-                $(".met-index-cases").length && scrollFun($(".met-index-cases"), 300,
-                function() {
-                    $(".met-index-cases .owl-carousel").owlCarousel({
-                        loop: !0,
-                        margin: 30,
-                        nav: !0,
-                        lazyLoad: !0,
-                        dots: !1,
-                        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                        autoplay: !0,
-                        autoplayTimeout: 3e3,
-                        autoplayHoverPause: !0,
-                        responsive: {
-                            0 : {
-                                items: 1
-                            },
-                            767 : {
-                                items: 1
-                            },
-                            970 : {
-                                items: 2
-                            },
-                            1024 : {
-                                items: 3
-                            },
-                            1200 : {
-                                items: 3
-                            }
-                        }
-                    })
-                }));
+            }));
             
 
             if ($(".met-index-case").length) {
@@ -152,45 +120,45 @@
 <script type="text/javascript" src="/plugins/advert/advert_js.ashx?id=1"></script>
     <div class="met-index-service met-index-body">
         <div class="container services-bg">
-            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="#" title="我们的产品" target='_self'>主要服务行业</a></h3>
-            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们为不同行业提供专业的产品以及服务</p>
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="#" title="我们的产品" target='_self'>Scope of business</a></h3>
+            <p class="desc animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">We provide professional products and services for different industries</p>
             <div class="row">
                 <div class="col-lg-6 col-md-12 animation-slide-top" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
-                    <a href="/goods/40.html" title="汽车行业配套产品" target='_self'>
+                    <a href="goodsen/63.html" title="Automotive industry" target='_self'>
                         <div class="services-box">
-                            <img data-original="<%templateskin%>/images/qiche.jpg" src="<%templateskin%>/images/qiche.jpg" title="汽车行业配套产品" alt="汽车行业配套产品">
+                            <img data-original="<%templateskin%>/images/qiche.jpg" src="<%templateskin%>/images/qiche.jpg" title="Automotive industry" alt="Automotive industry">
                             <div class="content">
-                                <h4>汽车行业配套产品</h4>
-                                <p>延轩模具在汽车行业配套产品有中控、脚踏板、仪表盘、安全带扣、方向盘等相关模具。</p>
+                                <h4>Automotive industry</h4>
+                                <p>an Xuan die has the related moulds, such as the control, the foot board, the dashboard, the safety belt buckle, the steering wheel and so on.</p>
                             </div>
                         </div>
                     </a>
-                    <a href="/goods/42.html" title="管路产品" target='_self'>
+                    <a href="goodsen/66.html" title="Pipeline product" target='_self'>
                         <div class="services-box">
-                            <img data-original="<%templateskin%>/images/guanlu.jpg" src="<%templateskin%>/images/guanlu.jpg" title="管路产品" alt="管路产品">
+                            <img data-original="<%templateskin%>/images/guanlu.jpg" src="<%templateskin%>/images/guanlu.jpg" title="Pipeline product" alt="Pipeline product">
                             <div class="content">
-                                <h4>管路产品</h4>
-                                <p>延轩模具在管路产品设计、制造管件模具，为客户提供最具有竞争力的管件模具</p>
+                                <h4>Pipeline product</h4>
+                                <p>Yan Xuan mould is designed and manufactured for pipe fittings in pipeline products to provide the most competitive pipe fittings for customers.</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class='col-lg-6 col-md-12'>
-                    <a href="/goods/41.html" title="家电产品" target='_self'>
+                    <a href="goodsen/64.html" title="Household" target='_self'>
                         <div class="services-box">
-                            <img data-original="<%templateskin%>/images/jiadian.jpg" src="<%templateskin%>/images/jiadian.jpg" title="家电产品" alt="家电产品">
+                            <img data-original="<%templateskin%>/images/jiadian.jpg" src="<%templateskin%>/images/jiadian.jpg" title="Household" alt="Household">
                             <div class="content">
-                                <h4>家电产品</h4>
-                                <p>延轩模具在家电行业配套产品有电视机部件、电吹风、空气净化器部件等模具</p>
+                                <h4>Household Electric Appliances</h4>
+                                <p>Yan Xuan die has the mould of TV set, electric hair dryer, air purifier parts and so on.</p>
                             </div>
                         </div>
                     </a>
-                    <a href="/goods/52.html" title="电子产品" target='_self'>
+                    <a href="goodsen/65.html" title="Electronic" target='_self'>
                         <div class="services-box">
-                            <img data-original="<%templateskin%>/images/thumb_002.jpg" src="<%templateskin%>/images/thumb_002.jpg" title="电子产品" alt="电子产品">
+                            <img data-original="<%templateskin%>/images/thumb_002.jpg" src="<%templateskin%>/images/thumb_002.jpg" title="Electronic" alt="Electronic">
                             <div class="content">
-                                <h4>电子产品</h4>
-                                <p>延轩模具在电子产品配套产品有铝型材机箱外壳、铝型材散热器、钣金机箱、机柜、塑胶外壳、铝合金及塑胶密封箱等</p>
+                                <h4>Electronic product</h4>
+                                <p>The products of our products include aluminum profile case shell, aluminum radiator, sheet metal case, cabinet, plastic case, aluminum alloy and plastic seal box.</p>
                             </div>
                         </div>
                     </a>
@@ -201,12 +169,12 @@
 
     <div class="met-index-product met-index-body">
         <div class="container">
-            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods/53.html" title="主要模具" target='_self'>主要模具</a></h3>
-            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们有丰富的模具，为客户提供优质模具产品。</p>
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods/53.html" title="Main mold" target='_self'>Main mold</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">We have a rich mold to provide customers with high quality mold products.</p>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="owl-carousel  animation-slide-bottom" data-animate="slide-bottom">
-                        <%set DataTable redList=get_article_list("goods", 53, 10, "status=0 and is_red=1")%>
+                        <%set DataTable redList=get_article_list("goodsen", 53, 10, "status=0 and is_red=1")%>
                         <%loop reddr redList%>
                         <li class="project-item ">
                             <a href="<%linkurl("goods_show",{reddr[id]})%>" title="{reddr[title]}" target='_self'>
@@ -228,29 +196,29 @@
 
     <div class="met-index-case met-index-body">
         <div class="container">
-            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods.html" title="热门产品" target='_self'>热门产品</a></h3>
-            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">我们公司的热门模具产品</p>
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="/goods.html" title="热门产品" target='_self'>Hot Product</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Our company's hot mold products</p>
         </div>
         <ul class="nav nav-tabs animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
             <li class="active">
-                <a href="#caselist" title="全部" data-toggle="tab" data-num='5' data-filter="*">全部</a>
+                <a href="#caselist" title="All" data-toggle="tab" data-num='5' data-filter="*">All</a>
             </li>
             <li>
-                <a href="#caselist" title="汽车行业配套产品" data-toggle="tab" data-filter="list_40">汽车行业配套产品</a>
+                <a href="#caselist" title="Automobile accessory" data-toggle="tab" data-filter="list_40">Automobile accessory</a>
             </li>
             <li>
-                <a href="#caselist" title="家电产品" data-toggle="tab" data-filter="list_41">家电产品</a>
+                <a href="#caselist" title="Household" data-toggle="tab" data-filter="list_41">Household</a>
             </li>
             <li>
-                <a href="#caselist" title="管路产品" data-toggle="tab" data-filter="list_42">管路产品</a>
+                <a href="#caselist" title="PiPing" data-toggle="tab" data-filter="list_42">PiPing</a>
             </li>
             <li>
-                <a href="#caselist" title="电子产品" data-toggle="tab" data-filter="list_52">电子产品</a>
+                <a href="#caselist" title="Electronic" data-toggle="tab" data-filter="list_52">Electronic</a>
             </li>
         </ul>
 
         <ul class="blocks no-space blocks-xlg-5 blocks-md-5 blocks-sm-3 blocks-xs-2" id="caselist">
-            <%set DataTable hotList=get_article_list("goods", 10, "status=0 and is_hot=1 and category_id in(40,41,42,52)")%>
+            <%set DataTable hotList=get_article_list("goodsen", 10, "status=0 and is_hot=1 and category_id in(40,41,42,52)")%>
             <%loop hotdr hotList%>
             <li data-type="list_{hotdr[category_id]}" class="project-item">
                 <div class="widget widget-shadow">
@@ -276,19 +244,19 @@
             <div class="left_side animation-slide-top" data-animate="slide-top" data-bg="<%templateskin%>/images/1479211597.jpg" bg-repeat="false" style='background-image: url("<%templateskin%>/images/1479211597.jpg");'>
                 <div class="we_are_opacity">
                     <div class="we_are_border">
-                        <h2>关于我们</h2>
+                        <h2>About us</h2>
                     </div>
                 </div>
             </div>
             <div class="right_side animation-slide-top" data-animate="slide-top" data-plugin="appear" data-repeat="false">
                 <div class="we_are_deatails">
-                    <h2><a href="about/1-cn.html" title="公司简介" target='_self'>公司简介</a></h2>
+                    <h2><a href="about/1-cn.html" title="Company profile" target='_self'>Company profile</a></h2>
                     <p>
-                    <p>上海延轩精密模具有限公司成立于2011年8月，是一家专业制造各类精密塑料模具的企业，一直致力于汽车产品，电脑周边产品，家电产品及电子产品设计与制造。</p>
-                    <p>本公司本着品质第一，客户满意为质量方针，利用雄厚的技术基础，多年的模具制造经验，精良的生产工艺，先进的加工设备，积极探索市场，追求卓越品质。秉承“稳定，和谐，热忱，效率”的精神。品质意识的不断提高的今天，公司不断引进先进的技术和机械设备。广纳技术人才，力求在模具技术上持续创新，使公司不断进步和持续发展，市场只提供机会，品质才是公司赖以生存的命脉。我司始终如一坚持“选择我们，共同受益”的经营理念。</p>
+                    <p>Shanghai Yan Xuan precision mould Co., Ltd. is a professional design and manufacture of precision plastic mold production enterprises, is committed to automotive accessory products, computer peripheral products, household appliances and electronic products and other mold design and manufacturing.</p>
+                    <p>Founded in 2011, The company has excellent technical team and advanced science and technology equipment, every product is produced with the strength of our team and the spirit of innovation, rigorous attitude, focus on excellence as the most perfect customer product design.</p>
 
-                    <p>我们将始终坚持："质量第一、客户至上、严守信誉、服务社会"的宗旨，为中国模具事业的发展做出贡献。</p>
-                    <p><strong>我们的愿景：</strong>创造模具行业卓越品牌。</p>
+                    <p>We will always adhere to the "quality first, customer first, strict reputation, serving the community" purpose, to contribute to the development of China's die and mold career.</p>
+                    <p><strong>Vision：</strong>:creating excellent brand of mould industry.</p>
                     </p>
                 </div>
             </div>
@@ -299,8 +267,8 @@
         <div class="container">
             <div class="row">
                 <div class="partner col-lg-12 col-md-12">
-                    <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="hezuo/list-39-cn.html" title="合作伙伴" target='_self'>合作伙伴</a></h3>
-                    <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false"> 欢迎更多的公司成为我们的合作伙伴</p>
+                    <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="hezuo/list-39-cn.html" title="Parter" target='_self'>Parter</a></h3>
+                    <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Welcome more companies to be our partners</p>
                     <div class="row">
                         <ul class="partnerli">
                             <%set DataTable hotPartnerList=get_article_list("partner", 30, "status=0 and is_hot=1")%>
@@ -317,7 +285,7 @@
     <div class="met-index-cases met-index-body" data-bg="<%templateskin%>/images/cases_bg.jpg" style="background-image:url(<%templateskin%>/images/cases_bg.jpg);" bg-repeat="false">
         <div class="container">
             <div class="owl-carousel" data-plugin="appear" data-animate="fade" data-repeat="false">
-                <%set DataTable redCaseList=get_article_list("case", 9, "status=0 and is_red=1")%>
+                <%set DataTable redCaseList=get_article_list("caseen", 9, "status=0 and is_red=1")%>
                 <%loop casedr redCaseList%>
                 <div class="item">
                     <div class="testimonials">
@@ -337,17 +305,17 @@
     </div>
     <div class="met-index-news met-index-body">
         <div class="container">
-            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="<%linkurl("news")%>" title="新闻中心" target='_self'>新闻中心</a></h3>
-            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">最新行业资讯和延轩动态</p>
+            <h3 class="animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="slide-top" data-repeat="false"><a href="<%linkurl("news")%>" title="News" target='_self'>News</a></h3>
+            <p class="desc animation-slide-top appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">Latest industry information and Yan Xuan dynamics</p>
 
             <div class="row">
-                <%set DataTable newsList=get_article_list("news", 3, "status=0")%>
+                <%set DataTable newsList=get_article_list("newsen", 3, "status=0")%>
                 <%loop newsdr newsList%>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 single-blog-post" data-plugin="appear" data-animate="slide-bottom" data-repeat="false">
                     <div class="img-holder">
                         <img class="cover-image" data-original="{newsdr[img_url]}" src="{newsdr[img_url]}" alt="{newsdr[title]}" title="{newsdr[title]}" width="370" height="200">
                         <div class="overlay">
-                            <a href="<%linkurl("news_show",{newsdr[id]})%>" title="{newsdr[title]}" target='_self'>
+                            <a href="<%linkurl("news_showen",{newsdr[id]})%>" title="{newsdr[title]}" target='_self'>
                                 <div class="overlays">
                                 </div>
                             </a>

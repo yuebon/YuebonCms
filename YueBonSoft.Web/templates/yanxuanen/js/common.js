@@ -211,49 +211,50 @@ function numConvert(obj){
 }
 
 //执行删除操作
-function ExecDelete(sendUrl, checkValue, urlObj) {
-    //检查传输的值
-    if (!checkValue) {
-        dialog({ title: '提示', content: '对不起，请选中您要操作的记录！', okValue: '确定', ok: function () { } }).showModal();
+function ExecDelete(sendUrl, checkValue, urlObj){
+	//检查传输的值
+	if (!checkValue) {
+		dialog({title:'提示', content:'对不起，请选中您要操作的记录！', okValue:'确定', ok:function (){}}).showModal();
         return false;
-    }
-    dialog({
+	}
+	dialog({
         title: '提示',
         content: '删除记录后不可恢复，您确定吗？',
         okValue: '确定',
         ok: function () {
             $.ajax({
-                type: "POST",
-                url: sendUrl,
-                dataType: "json",
-                data: {
-                    "checkId": checkValue
-                },
-                timeout: 20000,
-                success: function (data, textStatus) {
-                    if (data.status == 1) {
-                        var tipdialog = dialog({ content: data.msg }).show();
-                        setTimeout(function () {
-                            tipdialog.close().remove();
-                            if ($(urlObj)) {
-                                location.href = $(urlObj).val();
-                            } else {
-                                location.reload();
-                            }
-                        }, 2000);
-                    } else {
-                        dialog({ title: '提示', content: data.msg, okValue: '确定', ok: function () { } }).showModal();
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    dialog({ title: '提示', content: '状态：' + textStatus + '；出错提示：' + errorThrown, okValue: '确定', ok: function () { } }).showModal();
-                }
-            });
+				type: "POST",
+				url: sendUrl,
+				dataType: "json",
+				data: {
+					"checkId": checkValue
+				},
+				timeout: 20000,
+				success: function(data, textStatus) {
+					if (data.status == 1){
+						var tipdialog = dialog({content:data.msg}).show();
+						setTimeout(function () {
+							tipdialog.close().remove();
+							if($(urlObj)){
+								location.href = $(urlObj).val();
+							}else{
+								location.reload();
+							}
+						}, 2000);
+					} else {
+						dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
+					}
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					dialog({title:'提示', content:'状态：' + textStatus + '；出错提示：' + errorThrown, okValue:'确定', ok:function (){}}).showModal();
+				}
+			});
         },
         cancelValue: '取消',
         cancel: function () { }
     }).showModal();
 }
+
 //单击执行AJAX请求操作
 function clickSubmit(sendUrl){
 	$.ajax({

@@ -13,7 +13,7 @@
     <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/swiper/css/swiper.min.css" />
-    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel2-2.2.1/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="{config.webpath}scripts/owlcarousel/assets/owl.carousel.min.css" />
     <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/isotope.pkgd.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery.lazyload.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/swiper/js/swiper.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel2-2.2.1/owlcarousel2-2.2.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/owlcarousel/owlcarousel.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -74,7 +74,38 @@
                 }
                 }
                 })
-            }));
+                    }),
+                $(".met-index-cases").length && scrollFun($(".met-index-cases"), 300,
+                    function () {
+                        $(".met-index-cases .owl-carousel").owlCarousel({
+                            loop: !0,
+                            margin: 30,
+                            nav: !0,
+                            lazyLoad: !0,
+                            dots: !1,
+                            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                            autoplay: !0,
+                            autoplayTimeout: 3e3,
+                            autoplayHoverPause: !0,
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                767: {
+                                    items: 1
+                                },
+                                970: {
+                                    items: 2
+                                },
+                                1024: {
+                                    items: 3
+                                },
+                                1200: {
+                                    items: 3
+                                }
+                            }
+                        })
+                    }));
             
 
             if ($(".met-index-case").length) {

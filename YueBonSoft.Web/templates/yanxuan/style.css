@@ -380,7 +380,7 @@ b,strong {
  font-weight:600
 }
 .met-nav {
- min-height:80px;
+ min-height:60px;
  box-shadow:none;
  margin-top:0;
  margin-bottom:0;
@@ -395,13 +395,13 @@ b,strong {
  padding:0;
  margin-left:0!important;
  display:block;
- height:77px
+ height:60px
 }
 .met-nav .navbar-logo img {
- max-height:77px
+ max-height:50px
 }
 .met-nav .navbar-toggle {
- height:77px
+ height:60px
 }
 .met-nav .nav>li>a {
  -moz-transition:background .5s;
@@ -1012,21 +1012,23 @@ body.met-navfixed {
  color:#fff
 }
 @media (max-width:767px) {
-     .met-banner .carousel-caption h3 {
-      font-size:16px
-     }
-     .met-banner .carousel-caption p {
-      font-size:18px
-     }
-     .met-banner .carousel-caption p.banner-more a {
-      font-size:12px
-     }
-}
-
-/*子页banner位置*/
+ .met-banner .carousel-caption h3 {
+  font-size:16px
+ }
+ .met-banner .carousel-caption p {
+  font-size:18px
+ }
+ .met-banner .carousel-caption p.banner-more a {
+  font-size:12px
+ }
+ 
 .met-banner-ny {
-     background:#1ea404;
-     height:120px;
+ background-color:#1ea404;
+ height:120px
+}
+ .met-banner-ny {
+  height:90px
+ }
 }
 .met-banner-ny h1,.met-banner-ny h2 {
  color:#fff;
@@ -1035,11 +1037,6 @@ body.met-navfixed {
  padding:10px 30px;
  margin:0;
  text-shadow:none;
-}
-@media (max-width:767px) {
-.met-banner-ny {
-    height:90px;
-}
 }
 .met-banner-econy {
  background:#1ea404;
@@ -2369,8 +2366,6 @@ footer p {
   transform:scale(1);
  opacity:0.8;
  }
-
-
  .met-index-cases {
   margin-bottom:20px
  }
@@ -2781,8 +2776,7 @@ footer p {
  -moz-transition:all .3s ease-in-out 0s;
  -ms-transition:all .3s ease-in-out 0s;
  -o-transition:all .3s ease-in-out 0s;
- transition:all .3s ease-in-out 0s;
- width:100%;
+ transition:all .3s ease-in-out 0s
 }
 .met-index-bottomcontact .get_touch form {
  border:8px solid #f4f4f4;
