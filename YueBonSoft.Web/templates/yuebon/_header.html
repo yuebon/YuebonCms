@@ -14,71 +14,59 @@
             <div class="pull-right econav">
                 <ul>
                     <li>
+                        <div style=""><a href="tel:021-61984937">021-61984937</a></div>
+                    </li>
+                    <li>
                         <button type="button" data-target="#site-navbar-search" data-toggle="modal">
                             <span class="sr-only">Toggle Search</span>
                             <i class="icon fa-search"></i>
                         </button>
-                    </li>
-                    <li>
-                        <div style=""><a href="http://en.yanxuan-mould.com/">English</a></div>
                     </li>
                     <button type="button" class="navbar-toggle hamburger hamburger-close collapsed"
                             data-target="#example-navbar-default-collapse" data-toggle="collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="hamburger-bar"></span>
                     </button>
-                 </ul>
+                </ul>
             </div>
             <div class="collapse navbar-collapse navbar-collapse-toolbar" id="example-navbar-default-collapse">
                 <ul class="nav navbar-nav navbar-right navlist">
-                    <li><a href="<%linkurl("index")%>" title="网站首页" class="link active">网站首页</a></li>
+                    <li><a href="<%linkurl("index")%>" title="网站首页" class="link active">首页</a></li>
                     <li class="dropdown margin-left-30 ecodropdown">
-                        <a class="dropdown-toggle link animation-slide-top" data-toggle="dropdown" data-hover="dropdown"
-                           href="<%linkurl("content","about")%>" 
-                        aria-expanded="false"
-                            role="button" title="关于我们">关于我们<span class="caret"></span></a>
+                        <a class="dropdown-toggle link animation-slide-top"
+                            data-toggle="dropdown" data-hover="dropdown"
+                            href="<%linkurl("solutions")%>"
+                            aria-expanded="false"
+                            role="button" title="产品&解决方案">产品&解决方案<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
-                            <%set DataTable aboutList=get_article_list("content", 10,"status=0")%>
-                            <%loop abdr aboutList%>
-                            <li><a class="animation-slide-top" href="<%linkurl("content",{abdr[call_index]})%>" title="{abdr[title]}">{abdr[title]}</a></li>
-                            <%/loop%>
+                            <%set DataTable solutionscategoryList=get_category_child_list("solutions",0)%>
+                            <%foreach(DataRow cadr in solutionscategoryList.Rows)%>
+                            <li><a class="animation-slide-top" href="<%linkurl("solutions",{cadr[id]})%>" title="{cadr[title]}">{cadr[title]}</a></li>
+                            <%/foreach%>
                         </ul>
                     </li>
                     <li class="dropdown margin-left-30 ecodropdown">
                         <a class="dropdown-toggle link animation-slide-top"
                             data-toggle="dropdown" data-hover="dropdown"
-                            href="<%linkurl("capacity","yanfa")%>"
+                            href="<%linkurl("service")%>"
                             aria-expanded="false"
-                            role="button" title="生产能力">生产能力<span class="caret"></span></a>
+                            role="button" title="服务">服务<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
-                            <%set DataTable capacityList=get_article_list("capacity", 10,"status=0")%>
-                            <%loop cadr capacityList%>
-                            <li><a class="animation-slide-top" href="<%linkurl("capacity",{cadr[call_index]})%>" title="{cadr[title]}">{cadr[title]}</a></li>
-                            <%/loop%>
+                            <%set DataTable servicecategoryList=get_category_child_list("service",0)%>
+                            <%foreach(DataRow cadr in servicecategoryList.Rows)%>
+                            <li><a class="animation-slide-top" href="<%linkurl("service",{cadr[id]})%>" title="{cadr[title]}">{cadr[title]}</a></li>
+                            <%/foreach%>
                         </ul>
                     </li>
-                    <li class="dropdown margin-left-30 ecodropdown">
-                        <a class="dropdown-toggle link animation-slide-top"
-                            data-toggle="dropdown" data-hover="dropdown"
-                            href="<%linkurl("goods")%>"
-                            aria-expanded="false"
-                            role="button"
-                            title="产品展示">产品展示<span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
-                            <!--<li class="visible-xs-block"><a href="<%linkurl("goods")%>" title="全部">全部</a></li>-->
-                            <%set DataTable gdcaList=get_category_list("goods", 0)%>
-                            <%loop gdcadr gdcaList%>
-                            <li><a class="animation-slide-top" href="<%linkurl("goods_list",{gdcadr[id]})%>" class="" title="{gdcadr[title]}">{gdcadr[title]}</a></li>
-                            <%/loop%>
-                        </ul>
-                    </li>
+                    <li class="margin-left-30"><a href="<%linkurl("case")%>" title="案例" class="link animation-slide-top">案例</a></li>
+                    
                     <li class="dropdown margin-left-30 ecodropdown">
                         <a class="dropdown-toggle link animation-slide-top"
                             data-toggle="dropdown" data-hover="dropdown"
                             href="<%linkurl("news")%>"
                             aria-expanded="false"
                             role="button"
-                            title="新闻资讯">新闻资讯<span class="caret"></span></a>
+                            title="资讯">资讯<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
                             <li class="visible-xs-block"><a href="<%linkurl("news")%>" title="全部">全部</a></li>
                             <%set DataTable newscategoryList=get_category_child_list("news",0)%>
@@ -87,11 +75,21 @@
                             <%/foreach%>
                         </ul>
                     </li>
-
-                    <li class="margin-left-30"><a href="<%linkurl("case")%>" title="客户案例" class="link animation-slide-top">客户案例</a></li>
-                    <li class="margin-left-30"><a href="<%linkurl("jobs")%>" title="加入我们" class="link animation-slide-top">加入我们</a></li>
+                    <li class="dropdown margin-left-30 ecodropdown">
+                        <a class="dropdown-toggle link animation-slide-top" data-toggle="dropdown" data-hover="dropdown"
+                           href="<%linkurl("content","about")%>" 
+                        aria-expanded="false"
+                            role="button" title="关于我们">关于<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
+                            <%set DataTable aboutList=get_article_list("content", 10,"status=0")%>
+                            <%loop abdr aboutList%>
+                            <li><a class="animation-slide-top" href="<%linkurl("content",{abdr[call_index]})%>" title="{abdr[title]}">{abdr[title]}</a></li>
+                            <%/loop%>
+                            <li class="margin-left-30"><a href="<%linkurl("jobs")%>" title="加入我们" class="link animation-slide-top">加入我们</a></li>
+                        </ul>
+                    </li>
                     <!--<li class="margin-left-0"><a href="<%linkurl("down")%>" title="资料下载" class="link animation-slide-top">资料下载</a></li>-->
-                    <li class="margin-left-30" ><a href="<%linkurl("content","contact")%>" title="联系我们" class="link animation-slide-top">联系我们</a></li>
+                    <li class="margin-left-30" ><a href="<%linkurl("content","contact")%>" title="联系" class="link animation-slide-top">联系</a></li>
                 </ul>
             </div>
         </div>

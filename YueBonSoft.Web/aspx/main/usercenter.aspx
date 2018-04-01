@@ -9,36 +9,141 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by YueBoncms Template Engine at 2018-03-05 17:24:28.
-		本页面代码由YueBoncms模板引擎生成于 2018-03-05 17:24:28. 
+		This page was created by YueBoncms Template Engine at 2018-04-01 13:46:53.
+		本页面代码由YueBoncms模板引擎生成于 2018-04-01 13:46:53. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 
-	templateBuilder.Append("<!DOCTYPE html>\r\n<!--HTML5 doctype-->\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=0\">\r\n<title>会员中心 - ");
+	templateBuilder.Append("<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>会员中心 - ");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
 	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_keyword));
 	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_description));
 	templateBuilder.Append("\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/css/style.css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/zepto.min.js\"></");
+	templateBuilder.Append("/templates/yuebon");
+	templateBuilder.Append("/css/style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/weui.min.js\"></");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/dialog-plus-min.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
+	templateBuilder.Append("/templates/yuebon");
 	templateBuilder.Append("/js/common.js\"></");
-	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body ontouchstart>\r\n<div class=\"page\">\r\n    \r\n    ");
-	if (action=="index")
+	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--页面头部-->\r\n");
+
+	templateBuilder.Append("<!--[if lte IE 8]>\r\n    <div class=\"text-center padding-top-50 padding-bottom-50 bg-blue-grey-100\">\r\n    <p class=\"browserupgrade font-size-18\">你正在使用一个<strong>过时</strong>的浏览器。请<a href=\"http://browsehappy.com/\" target=\"_blank\">升级您的浏览器</a>，以提高您的体验。</p>\r\n    </div>\r\n<![endif]-->\r\n<nav class=\"navbar navbar-default met-nav navbar-fixed-top\" role=\"navigation\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"navbar-header\">\r\n                <a href=\"");
+	templateBuilder.Append(linkurl("index"));
+
+	templateBuilder.Append("\" class=\"navbar-logo vertical-align\" title=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.seo_title));
+	templateBuilder.Append("\">\r\n                    <div class=\"vertical-align-middle\"><img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.logo));
+	templateBuilder.Append("\" alt=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.seo_title));
+	templateBuilder.Append("\" title=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.seo_title));
+	templateBuilder.Append("\" /></div>\r\n                </a>\r\n            </div>\r\n            <div class=\"pull-right econav\">\r\n                <ul>\r\n                    <li>\r\n                        <button type=\"button\" data-target=\"#site-navbar-search\" data-toggle=\"modal\">\r\n                            <span class=\"sr-only\">Toggle Search</span>\r\n                            <i class=\"icon fa-search\"></i>\r\n                        </button>\r\n                    </li>\r\n                    <li>\r\n                        <div style=\"\"><a href=\"http://en.yanxuan-mould.com/\">English</a></div>\r\n                    </li>\r\n                    <button type=\"button\" class=\"navbar-toggle hamburger hamburger-close collapsed\"\r\n                            data-target=\"#example-navbar-default-collapse\" data-toggle=\"collapse\">\r\n                        <span class=\"sr-only\">Toggle navigation</span>\r\n                        <span class=\"hamburger-bar\"></span>\r\n                    </button>\r\n                 </ul>\r\n            </div>\r\n            <div class=\"collapse navbar-collapse navbar-collapse-toolbar\" id=\"example-navbar-default-collapse\">\r\n                <ul class=\"nav navbar-nav navbar-right navlist\">\r\n                    <li><a href=\"");
+	templateBuilder.Append(linkurl("index"));
+
+	templateBuilder.Append("\" title=\"网站首页\" class=\"link active\">首页</a></li>\r\n                    <li class=\"dropdown margin-left-30 ecodropdown\">\r\n                        <a class=\"dropdown-toggle link animation-slide-top\"\r\n                            data-toggle=\"dropdown\" data-hover=\"dropdown\"\r\n                            href=\"");
+	templateBuilder.Append(linkurl("solutions"));
+
+	templateBuilder.Append("\"\r\n                            aria-expanded=\"false\"\r\n                            role=\"button\" title=\"产品&解决方案\">产品&解决方案<span class=\"caret\"></span></a>\r\n                        <ul class=\"dropdown-menu dropdown-menu-right bullet\" role=\"menu\">\r\n                            ");
+	DataTable solutionscategoryList = get_category_child_list("solutions",0);
+
+	foreach(DataRow cadr in solutionscategoryList.Rows)
 	{
 
-	templateBuilder.Append("\r\n    <script type=\"text/javascript\">\r\n        $(function(){\r\n            //选中TAB样式\r\n            $(\".weui-tabbar a\").eq(3).addClass(\"weui-bar__item_on\");\r\n        });\r\n    </");
-	templateBuilder.Append("script>\r\n    <!--会员中心-->\r\n    <div class=\"page__bd\">\r\n        <!--页面头部-->\r\n        <div class=\"head-box\">\r\n            <div class=\"img-box\">\r\n                ");
+	templateBuilder.Append("\r\n                            <li><a class=\"animation-slide-top\" href=\"");
+	templateBuilder.Append(linkurl("solutions",Utils.ObjectToStr(cadr["id"])));
+
+	templateBuilder.Append("\" title=\"" + Utils.ObjectToStr(cadr["title"]) + "\">" + Utils.ObjectToStr(cadr["title"]) + "</a></li>\r\n                            ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                        </ul>\r\n                    </li>\r\n                    <li class=\"dropdown margin-left-30 ecodropdown\">\r\n                        <a class=\"dropdown-toggle link animation-slide-top\"\r\n                            data-toggle=\"dropdown\" data-hover=\"dropdown\"\r\n                            href=\"");
+	templateBuilder.Append(linkurl("service"));
+
+	templateBuilder.Append("\"\r\n                            aria-expanded=\"false\"\r\n                            role=\"button\" title=\"服务\">服务<span class=\"caret\"></span></a>\r\n                        <ul class=\"dropdown-menu dropdown-menu-right bullet\" role=\"menu\">\r\n                            ");
+	DataTable servicecategoryList = get_category_child_list("service",0);
+
+	foreach(DataRow cadr in servicecategoryList.Rows)
+	{
+
+	templateBuilder.Append("\r\n                            <li><a class=\"animation-slide-top\" href=\"");
+	templateBuilder.Append(linkurl("service",Utils.ObjectToStr(cadr["id"])));
+
+	templateBuilder.Append("\" title=\"" + Utils.ObjectToStr(cadr["title"]) + "\">" + Utils.ObjectToStr(cadr["title"]) + "</a></li>\r\n                            ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                        </ul>\r\n                    </li>\r\n                    <li class=\"margin-left-30\"><a href=\"");
+	templateBuilder.Append(linkurl("case"));
+
+	templateBuilder.Append("\" title=\"案例\" class=\"link animation-slide-top\">案例</a></li>\r\n                    \r\n                    <li class=\"dropdown margin-left-30 ecodropdown\">\r\n                        <a class=\"dropdown-toggle link animation-slide-top\"\r\n                            data-toggle=\"dropdown\" data-hover=\"dropdown\"\r\n                            href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\"\r\n                            aria-expanded=\"false\"\r\n                            role=\"button\"\r\n                            title=\"新闻资讯\">新闻<span class=\"caret\"></span></a>\r\n                        <ul class=\"dropdown-menu dropdown-menu-right bullet\" role=\"menu\">\r\n                            <li class=\"visible-xs-block\"><a href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\" title=\"全部\">全部</a></li>\r\n                            ");
+	DataTable newscategoryList = get_category_child_list("news",0);
+
+	foreach(DataRow hdcdr in newscategoryList.Rows)
+	{
+
+	templateBuilder.Append("\r\n                            <li><a class=\"animation-slide-top\" href=\"");
+	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(hdcdr["id"])));
+
+	templateBuilder.Append("\" title=\"" + Utils.ObjectToStr(hdcdr["title"]) + "\">" + Utils.ObjectToStr(hdcdr["title"]) + "</a></li>\r\n                            ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                        </ul>\r\n                    </li>\r\n                    <li class=\"dropdown margin-left-30 ecodropdown\">\r\n                        <a class=\"dropdown-toggle link animation-slide-top\" data-toggle=\"dropdown\" data-hover=\"dropdown\"\r\n                           href=\"");
+	templateBuilder.Append(linkurl("content","about"));
+
+	templateBuilder.Append("\" \r\n                        aria-expanded=\"false\"\r\n                            role=\"button\" title=\"关于我们\">关于<span class=\"caret\"></span></a>\r\n                        <ul class=\"dropdown-menu dropdown-menu-right bullet\" role=\"menu\">\r\n                            ");
+	DataTable aboutList = get_article_list("content", 10,"status=0");
+
+	int abdr__loop__id=0;
+	foreach(DataRow abdr in aboutList.Rows)
+	{
+		abdr__loop__id++;
+
+
+	templateBuilder.Append("\r\n                            <li><a class=\"animation-slide-top\" href=\"");
+	templateBuilder.Append(linkurl("content",Utils.ObjectToStr(abdr["call_index"])));
+
+	templateBuilder.Append("\" title=\"" + Utils.ObjectToStr(abdr["title"]) + "\">" + Utils.ObjectToStr(abdr["title"]) + "</a></li>\r\n                            ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                            <li class=\"margin-left-30\"><a href=\"");
+	templateBuilder.Append(linkurl("jobs"));
+
+	templateBuilder.Append("\" title=\"加入我们\" class=\"link animation-slide-top\">加入我们</a></li>\r\n                        </ul>\r\n                    </li>\r\n                    <!--<li class=\"margin-left-0\"><a href=\"");
+	templateBuilder.Append(linkurl("down"));
+
+	templateBuilder.Append("\" title=\"资料下载\" class=\"link animation-slide-top\">资料下载</a></li>-->\r\n                    <li class=\"margin-left-30\" ><a href=\"");
+	templateBuilder.Append(linkurl("content","contact"));
+
+	templateBuilder.Append("\" title=\"联系\" class=\"link animation-slide-top\">联系</a></li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</nav>\r\n\r\n");
+
+
+	templateBuilder.Append("\r\n<!--/页面头部-->\r\n\r\n<!--当前位置-->\r\n<div class=\"section\">\r\n    <div class=\"location\">\r\n        <span>当前位置：</span>\r\n        <a href=\"");
+	templateBuilder.Append(linkurl("index"));
+
+	templateBuilder.Append("\">首页</a> &gt;\r\n        <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","index"));
+
+	templateBuilder.Append("\">会员中心</a>\r\n    </div>\r\n</div>\r\n<!--/当前位置-->\r\n\r\n<div class=\"section clearfix\">\r\n    <!--页面左边-->\r\n    ");
+
+	templateBuilder.Append("    <div class=\"left-260\">\r\n        <div class=\"bg-wrap\">\r\n            <div class=\"avatar-box\">\r\n                <a class=\"img-box\" href=\"");
+	templateBuilder.Append(linkurl("usercenter","avatar"));
+
+	templateBuilder.Append("\">\r\n                ");
 	if (userModel.avatar!="")
 	{
 
@@ -52,208 +157,307 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n                    <i class=\"iconfont icon-user-full\"></i>\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n            </div>\r\n            <div class=\"tit-box\">\r\n                <h3>");
-	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
-	templateBuilder.Append("</h3>\r\n                <p>会员等级：");
-	templateBuilder.Append(Utils.ObjectToStr(groupModel.title));
-	templateBuilder.Append("</p>\r\n                <p>个人成长值：");
-	templateBuilder.Append(Utils.ObjectToStr(userModel.exp));
-	templateBuilder.Append("点</p>\r\n            </div>\r\n        </div>\r\n        <!--/页面头部-->\r\n        <!--菜单选项-->\r\n        <div class=\"weui-cells icon-list\">\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
-	templateBuilder.Append(linkurl("usergoodsopportunitys","list"));
+	templateBuilder.Append("\r\n                </a>\r\n                <h3>\r\n                ");
+	if (userModel.nick_name!="")
+	{
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-order\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>我的货源</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\"></div>\r\n            </a>\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\r\n                    ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.nick_name));
+	templateBuilder.Append("\r\n                ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n                    ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
+	templateBuilder.Append("\r\n                ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                </h3>\r\n                <p><b>");
+	templateBuilder.Append(Utils.ObjectToStr(groupModel.title));
+	templateBuilder.Append("</b></p>\r\n            </div>\r\n            \r\n            <div class=\"center-nav\">\r\n                <ul>\r\n                    <li>\r\n                        <h2>\r\n                            <i class=\"iconfont icon-order\"></i>\r\n                            <span>订单管理</span>\r\n                        </h2>\r\n                        <div class=\"list\">\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("userorder","list"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>交易订单</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("userorder","close"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>失效订单</a></p>\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("useraddress"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-address\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>收货地址</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\"></div>\r\n            </a>\r\n        </div>\r\n        \r\n        <div class=\"weui-cells icon-list\">\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>收货地址</a></p>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <h2>\r\n                            <i class=\"iconfont icon-amount\"></i>\r\n                            <span>余额管理</span>\r\n                        </h2>\r\n                        <div class=\"list\">\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("useramount","recharge"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-amount\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>账户余额</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\">￥");
-	templateBuilder.Append(Utils.ObjectToStr(userModel.amount));
-	templateBuilder.Append(" 元</div>\r\n            </a>\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>账户充值</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("useramount","log"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>充值记录</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("useramount","list"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>收支明细</a></p>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <h2>\r\n                            <i class=\"iconfont icon-point\"></i>\r\n                            <span>积分管理</span>\r\n                        </h2>\r\n                        <div class=\"list\">\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("userpoint","convert"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-point\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>我的积分</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\">");
-	templateBuilder.Append(Utils.ObjectToStr(userModel.point));
-	templateBuilder.Append(" 分</div>\r\n            </a>\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>积分兑换</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("userpoint","list"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>积分明细</a></p>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <h2>\r\n                            <i class=\"iconfont icon-comment\"></i>\r\n                            <span>站内消息</span>\r\n                        </h2>\r\n                        <div class=\"list\">\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("usermessage","system"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>系统消息</a></p>\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("usermessage","accept"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-msg\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>站内短信</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\">");
-	templateBuilder.Append(get_user_message_count("accept_user_name='"+userModel.user_name+"' and is_read=0").ToString());
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>收件箱</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("usermessage","send"));
 
-	templateBuilder.Append(" 条</div>\r\n            </a>\r\n        </div>\r\n        \r\n        <div class=\"weui-cells icon-list\">\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>发件箱</a></p>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <h2>\r\n                            <i class=\"iconfont icon-user\"></i>\r\n                            <span>账户管理</span>\r\n                        </h2>\r\n                        <div class=\"list\">\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("usercenter","invite"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>邀请注册</a></p>\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("usercenter","proinfo"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-info\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>个人资料</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\"></div>\r\n            </a>\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>账户资料</a></p>\r\n                            <p><a href=\"");
+	templateBuilder.Append(linkurl("usercenter","avatar"));
+
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>头像设置</a></p>\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("usercenter","password"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-pwd\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>修改密码</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\"></div>\r\n            </a>\r\n            <a class=\"weui-cell weui-cell_access\" href=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>修改密码</a></p>\r\n                            <p><a href=\"");
 	templateBuilder.Append(linkurl("usercenter","exit"));
 
-	templateBuilder.Append("\">\r\n                <div class=\"weui-cell__hd\">\r\n                    <i class=\"iconfont icon-exit\"></i>\r\n                </div>\r\n                <div class=\"weui-cell__bd\">\r\n                    <p>退出登录</p>\r\n                </div>\r\n                <div class=\"weui-cell__ft\"></div>\r\n            </a>\r\n        </div>\r\n        <!--/菜单选项-->\r\n    </div>\r\n    <!--版权信息-->\r\n    ");
-
-	templateBuilder.Append("        <div class=\"weui-footer footer\">\r\n            <p class=\"weui-footer__text\">");
-	templateBuilder.Append(Utils.ObjectToStr(site.copyright));
-	templateBuilder.Append("</p>\r\n        </div>");
+	templateBuilder.Append("\"><i class=\"iconfont icon-arrow-right\"></i>退出登录</a></p>\r\n                        </div>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n                \r\n        </div>\r\n    </div>");
 
 
-	templateBuilder.Append("\r\n    <!--/版权信息-->\r\n\r\n    <!--底部导航-->\r\n    ");
+	templateBuilder.Append("\r\n    <!--/页面左边-->\r\n    \r\n    <!--页面左边-->\r\n    <div class=\"right-auto\">\r\n        <div class=\"bg-wrap\" style=\"min-height:765px;\">\r\n            \r\n            ");
+	if (action=="index")
+	{
 
-	templateBuilder.Append("        <div class=\"weui-tab foot-nav\">\r\n            <div class=\"weui-tab__panel\">\r\n\r\n            </div>\r\n            <div class=\"weui-tabbar\">\r\n                <a href=\"");
-	templateBuilder.Append(linkurl("index"));
+	templateBuilder.Append("\r\n            <!--会员中心-->\r\n            <div class=\"sub-tit\">\r\n                <a class=\"add\" href=\"javascript:history.go(-1);\"><i class=\"iconfont icon-reply\"></i>返回</a>\r\n                <ul>\r\n                    <li class=\"selected\">\r\n                        <a href=\"javascript:;\">个人中心</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n            <div class=\"center-head clearfix\">\r\n                <div class=\"img-box\">\r\n                ");
+	if (userModel.avatar!="")
+	{
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                    <i class=\"iconfont icon-home weui-tabbar__icon\"></i>\r\n                    <p class=\"weui-tabbar__label\">首页</p>\r\n                </a>\r\n                <a href=\"");
-	templateBuilder.Append(linkurl("lineselect"));
+	templateBuilder.Append("\r\n                    <img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.avatar));
+	templateBuilder.Append("\" />\r\n                ");
+	}
+	else
+	{
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                    <span class=\"item-box\">\r\n                        <i class=\"iconfont icon-address weui-tabbar__icon\"></i>\r\n                    </span>\r\n                    <p class=\"weui-tabbar__label\">专线</p>\r\n                </a>\r\n                <a href=\"");
-	templateBuilder.Append(linkurl("search"));
+	templateBuilder.Append("\r\n                    <i class=\"iconfont icon-user-full\"></i>\r\n                ");
+	}	//end for if
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                    <i class=\"iconfont icon-search weui-tabbar__icon\"></i>\r\n                    <p class=\"weui-tabbar__label\">搜索</p>\r\n                </a>\r\n                <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
+	templateBuilder.Append("\r\n                </div>\r\n                <div class=\"list-box\">\r\n                    <h3>欢迎您~ ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
+	templateBuilder.Append("</h3>\r\n                    <ul>\r\n                        <li>组别：");
+	templateBuilder.Append(Utils.ObjectToStr(groupModel.title));
+	templateBuilder.Append("</li>\r\n                        <li>账户余额：￥");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.amount));
+	templateBuilder.Append("</li>\r\n                        <li><p><a href=\"#\">消费记录</a></p></li>\r\n                        <li>账户成长值：");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.exp));
+	templateBuilder.Append("</li>\r\n                        <li>账户积分：");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.point));
+	templateBuilder.Append("</li>\r\n                        <li><p><a class=\"link-btn\" href=\"");
+	templateBuilder.Append(linkurl("useramount","recharge"));
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                    <i class=\"iconfont icon-user weui-tabbar__icon\"></i>\r\n                    <p class=\"weui-tabbar__label\">会员</p>\r\n                </a>\r\n            </div>\r\n        </div>");
+	templateBuilder.Append("\">立即充值</a></p></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"center-info clearfix\">\r\n                <ul>\r\n                    <li>本次登录IP：");
+	templateBuilder.Append(Utils.ObjectToStr(curr_login_ip));
+	templateBuilder.Append("</li>\r\n                    <li>上次登录IP：");
+	templateBuilder.Append(Utils.ObjectToStr(pre_login_ip));
+	templateBuilder.Append("</li>\r\n                    <li>注册时间：");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.reg_time));
+	templateBuilder.Append("</li>\r\n                    <li>上次登录时间：");
+	templateBuilder.Append(Utils.ObjectToStr(pre_login_time));
+	templateBuilder.Append("</li>\r\n                </ul>\r\n            </div>\r\n            \r\n            <div class=\"center-tit\">\r\n                <span><a href=\"");
+	templateBuilder.Append(linkurl("userorder","list"));
 
+	templateBuilder.Append("\">更多..</a></span>\r\n                <h3><i class=\"iconfont icon-order\"></i>我的订单</h3>\r\n            </div>\r\n            <div class=\"center-info clearfix\">\r\n                <ul>\r\n                    <li>已完成订单：");
+	templateBuilder.Append(get_user_order_count("status=3 and user_id="+userModel.id).ToString());
 
-	templateBuilder.Append("\r\n    <!--/底部导航-->\r\n    <!--会员中心-->\r\n    \r\n    ");
+	templateBuilder.Append("个</li>\r\n                    <li>待完成订单：");
+	templateBuilder.Append(get_user_order_count("status<3 and user_id="+userModel.id).ToString());
+
+	templateBuilder.Append("个</li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"center-tit\">\r\n                <span><a href=\"");
+	templateBuilder.Append(linkurl("usermessage","accept"));
+
+	templateBuilder.Append("\">更多..</a></span>\r\n                <h3><i class=\"iconfont icon-comment\"></i>站内消息</h3>\r\n            </div>\r\n            \r\n            <div class=\"table-wrap\">\r\n                <table width=\"100%\" class=\"mtable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody>\r\n                ");
+	DataTable messageList = get_user_message_list(10, "accept_user_name='"+userModel.user_name+"' and (type=1 or type=2)");
+
+	foreach(DataRow dr in messageList.Rows)
+	{
+
+	templateBuilder.Append("\r\n                    <tr>\r\n                        <td><a href=\"");
+	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a> (发件人：" + Utils.ObjectToStr(dr["post_user_name"]) + ")</td>\r\n                        <td width=\"80\">\r\n                        ");
+	if (Utils.ObjectToStr(dr["is_read"])=="1")
+	{
+
+	templateBuilder.Append("\r\n                            已读\r\n                        ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n                            未读\r\n                        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                        </td>\r\n                        <td width=\"150\">" + Utils.ObjectToStr(dr["post_time"]) + "</td>\r\n                    </tr>\r\n                ");
+	}	//end for if
+
+	if (messageList.Rows.Count==0)
+	{
+
+	templateBuilder.Append("\r\n                    <tr><td align=\"center\">暂无短消息...</td></tr>\r\n                ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                </tbody>\r\n                </table>\r\n            </div>\r\n            <!--会员中心-->\r\n        \r\n            ");
 	}
 	else if (action=="password")
 	{
 
-	templateBuilder.Append("\r\n    <!--修改密码-->\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/css/validate.css\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/mvalidate.js\"></");
-	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/mvalidate-extend.js\"></");
-	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\">\r\n        $(function(){\r\n            //初始化表单\r\n            AjaxInitForm('#pwdForm', '#btnSubmit', 1);\r\n            //选中TAB样式\r\n            $(\".weui-tabbar a\").eq(2).addClass(\"weui-bar__item_on\");\r\n        });\r\n    </");
-	templateBuilder.Append("script>\r\n    <div class=\"page__bd\">\r\n        <!--页面头部-->\r\n        <div class=\"header\">\r\n            <a class=\"back\" href=\"javascript:history.back();\">\r\n                <i class=\"iconfont icon-arrow-left\"></i>\r\n            </a>\r\n            <h3>修改密码</h3>\r\n            <div class=\"right\"> \r\n                <a class=\"weui-cell_access weui-cell_link\" href=\"");
+	templateBuilder.Append("\r\n            <!--修改密码-->\r\n            <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/validate.css\" />\r\n            <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.form.min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\">\r\n            $(function(){\r\n                //初始化表单\r\n                AjaxInitForm('#pwdForm', '#btnSubmit', 1);\r\n            });\r\n            </");
+	templateBuilder.Append("script>\r\n            <div class=\"sub-tit\">\r\n                <a class=\"add\" href=\"");
 	templateBuilder.Append(linkurl("usercenter","index"));
 
-	templateBuilder.Append("\">\r\n                    <i class=\"iconfont icon-user\"></i>\r\n                </a>\r\n            </div>\r\n        </div>\r\n        <!--/页面头部-->\r\n        \r\n        <form name=\"pwdForm\" id=\"pwdForm\" class=\"form-box\" url=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-reply\"></i>返回</a>\r\n                <ul>\r\n                    <li class=\"selected\">\r\n                        <a href=\"javascript:;\">修改密码</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n            <form name=\"pwdForm\" id=\"pwdForm\" url=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=user_password_edit\">\r\n        <div class=\"weui-panel weui-panel_access\" style=\"margin-top:10px;\">\r\n            <div class=\"weui-panel__hd\">修改密码</div>\r\n            <div class=\"weui-panel__bd\">\r\n                <div class=\"weui-cells_form form-box\">\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">旧密码</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtOldPassword\" name=\"txtOldPassword\" type=\"password\" class=\"weui-input\" placeholder=\"请输入旧密码\" data-validate=\"password\" />\r\n                        </div>\r\n                    </div>\r\n                    \r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">新密码</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtPassword\" name=\"txtPassword\" type=\"password\" class=\"weui-input\" placeholder=\"请输入新密码\" data-validate=\"password\" />\r\n                        </div>\r\n                    </div>\r\n                    \r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">确认密码</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtPassword1\" name=\"txtPassword1\" type=\"password\" class=\"weui-input\" placeholder=\"请再输入一次新密码\" data-required=\"true\" data-descriptions=\"confirmpassword\" data-conditional=\"confirmpwd\" />\r\n                        </div>\r\n                    </div>\r\n                    \r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"weui-btn-area\">\r\n            <input id=\"btnSubmit\" name=\"btnSubmit\" type=\"submit\" class=\"weui-btn weui-btn_primary\" value=\"确认修改\" />\r\n        </div>\r\n        </form>\r\n    </div>\r\n    <!--版权信息-->\r\n    ");
-
-	templateBuilder.Append("        <div class=\"weui-footer footer\">\r\n            <p class=\"weui-footer__text\">");
-	templateBuilder.Append(Utils.ObjectToStr(site.copyright));
-	templateBuilder.Append("</p>\r\n        </div>");
-
-
-	templateBuilder.Append("\r\n    <!--/版权信息-->\r\n\r\n    <!--底部导航-->\r\n    <div class=\"weui-tab foot-nav\">\r\n        <div class=\"weui-tab__panel\">\r\n\r\n        </div>\r\n        <div class=\"weui-tabbar\">\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-home weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">首页</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","proinfo"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-info weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">个人资料</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","password"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-pwd weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">修改密码</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","invite"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-invite weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">邀请注册</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n    <!--/底部导航-->\r\n    <!--/修改密码-->\r\n        \r\n    ");
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_password_edit\">\r\n                <div class=\"form-box\">\r\n                    <dl class=\"form-group\">\r\n                        <dt>用户名：</dt>\r\n                        <dd>");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
+	templateBuilder.Append("</dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>旧密码：</dt>\r\n                        <dd>\r\n                            <input name=\"txtOldPassword\" id=\"txtOldPassword\" type=\"password\" class=\"input\" datatype=\"*6-20\" nullmsg=\"请输入旧密码\" errormsg=\"密码范围在6-20位之间\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>新密码：</dt>\r\n                        <dd>\r\n                            <input name=\"txtPassword\" id=\"txtPassword\" type=\"password\" class=\"input\" datatype=\"*6-20\" nullmsg=\"请输入新密码\" errormsg=\"密码范围在6-20位之间\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>确认新密码：</dt>\r\n                        <dd>\r\n                            <input name=\"txtPassword1\" id=\"txtPassword1\" type=\"password\" class=\"input\" datatype=\"*\" recheck=\"txtPassword\" nullmsg=\"请再输入一次新密码\" errormsg=\"两次输入的密码不一致\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dd>\r\n                            <input id=\"btnSubmit\" name=\"btnSubmit\" type=\"submit\" value=\"确认修改\" class=\"submit\" />\r\n                        </dd>\r\n                    </dl>\r\n                </div>\r\n            </form>\r\n            <!--/修改密码-->\r\n            \r\n            ");
 	}
 	else if (action=="proinfo")
 	{
 
-	templateBuilder.Append("\r\n    <!--修改资料-->\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/css/validate.css\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/mvalidate.js\"></");
-	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/dfkc");
-	templateBuilder.Append("/js/mvalidate-extend.js\"></");
-	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("\r\n            <!--修改资料-->\r\n            <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/validate.css\" />\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.form.min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/PCASClass.js\"></");
-	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\">\r\n        $(function(){\r\n            //初始化表单\r\n            AjaxInitForm('#infoForm', '#btnSubmit', 1);\r\n            //初始化地区\r\n            var mypcas = new PCAS(\"txtProvince,所属省份\", \"txtCity,所属城市\", \"txtArea,所属地区\");\r\n            var areaArr = (\"");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/datepicker/WdatePicker.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\">\r\n            $(function(){\r\n                //初始化表单\r\n                AjaxInitForm('#infoForm', '#btnSubmit', 1);\r\n                //初始化地区\r\n                var mypcas = new PCAS(\"txtProvince,所属省份\", \"txtCity,所属城市\", \"txtArea,所属地区\");\r\n                var areaArr = (\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.area));
-	templateBuilder.Append("\").split(\",\");\r\n            if (areaArr.length == 3) {\r\n              mypcas.SetValue(areaArr[0], areaArr[1], areaArr[2]);\r\n            }\r\n            //初始化日期\r\n            $(\"#txtBirthday\").on('focus', function(){\r\n                weui.datePicker({\r\n                    start: 1920,\r\n                    end: 2080,\r\n                    defaultValue: [1980,1,1],\r\n                    onChange: function(result){\r\n                    },\r\n                    onConfirm: function(result){\r\n                        $(\"#txtBirthday\").val(result);\r\n                    },\r\n                    id: 'datePicker'\r\n                });\r\n            });\r\n            //选中TAB样式\r\n            $(\".weui-tabbar a\").eq(1).addClass(\"weui-bar__item_on\");\r\n        });\r\n    </");
-	templateBuilder.Append("script>\r\n    <div class=\"page__bd\">\r\n        <!--页面头部-->\r\n        <div class=\"header\">\r\n            <a class=\"back\" href=\"javascript:history.back();\">\r\n                <i class=\"iconfont icon-arrow-left\"></i>\r\n            </a>\r\n            <h3>账户资料</h3>\r\n            <div class=\"right\"> \r\n                <a class=\"weui-cell_access weui-cell_link\" href=\"");
+	templateBuilder.Append("\").split(\",\");\r\n                if (areaArr.length == 3) {\r\n                  mypcas.SetValue(areaArr[0], areaArr[1], areaArr[2]);\r\n                }\r\n            });\r\n            </");
+	templateBuilder.Append("script>\r\n            <div class=\"sub-tit\">\r\n                <a class=\"add\" href=\"");
 	templateBuilder.Append(linkurl("usercenter","index"));
 
-	templateBuilder.Append("\">\r\n                    <i class=\"iconfont icon-user\"></i>\r\n                </a>\r\n            </div>\r\n        </div>\r\n        <!--/页面头部-->\r\n        \r\n        <form name=\"infoForm\" id=\"infoForm\" class=\"form-box\" url=\"");
+	templateBuilder.Append("\"><i class=\"iconfont icon-reply\"></i>返回</a>\r\n                <ul>\r\n                    <li class=\"selected\">\r\n                        <a href=\"javascript:;\">账户资料</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <form name=\"infoForm\" id=\"infoForm\" url=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=user_info_edit\">\r\n        <div class=\"weui-panel weui-panel_access\" style=\"margin-top:10px;\">\r\n            <div class=\"weui-panel__hd\">个人资料</div>\r\n            <div class=\"weui-panel__bd\">\r\n                <div class=\"weui-cells_form form-box\">\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">用户昵称</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtNickName\" name=\"txtNickName\" class=\"weui-input\" type=\"text\" value=\"");
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_info_edit\">\r\n                <div class=\"form-box\">\r\n                    <dl class=\"form-group\">\r\n                        <dt>用户名：</dt>\r\n                        <dd>\r\n                            ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
+	templateBuilder.Append("\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>昵称：</dt>\r\n                        <dd>\r\n                            <input name=\"txtNickName\" id=\"txtNickName\" type=\"text\" class=\"input\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.nick_name));
-	templateBuilder.Append("\" placeholder=\"用户昵称\" data-validate=\"s\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">性别</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            ");
+	templateBuilder.Append("\" datatype=\"*\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>性别：</dt>\r\n                        <dd>\r\n                        ");
 	if (userModel.sex=="男")
 	{
 
-	templateBuilder.Append("\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"男\" checked=\"checked\" />男</label>\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"女\" />女</label>\r\n                            <label><input id=\"sex-3\" name=\"rblSex\" type=\"radio\" value=\"保密\" />保密</label>\r\n                            ");
+	templateBuilder.Append("\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"男\" checked=\"checked\" />男</label> \r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"女\" />女</label>\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"保密\" datatype=\"*\" sucmsg=\" \" />保密</label>\r\n                        ");
 	}
 	else if (userModel.sex=="女")
 	{
 
-	templateBuilder.Append("\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"男\" />男</label>\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"女\" checked=\"checked\" />女</label>\r\n                            <label><input id=\"sex-3\" name=\"rblSex\" type=\"radio\" value=\"保密\" />保密</label>\r\n                            ");
+	templateBuilder.Append("\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"男\" />男</label> \r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"女\" checked=\"checked\" />女</label>\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"保密\" datatype=\"*\" sucmsg=\" \" />保密</label>\r\n                        ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"男\" />男</label>\r\n                            <label style=\"margin-right:10px;\"><input name=\"rblSex\" type=\"radio\" value=\"女\" />女</label>\r\n                            <label><input id=\"sex-3\" name=\"rblSex\" type=\"radio\" value=\"保密\" checked=\"checked\" />保密</label>\r\n                            ");
+	templateBuilder.Append("\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"男\" />男</label> \r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"女\" />女</label>\r\n                            <label class=\"mart\"><input name=\"rblSex\" type=\"radio\" value=\"保密\" checked=\"checked\" datatype=\"*\" sucmsg=\" \" />保密</label>\r\n                        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">生日</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            ");
+	templateBuilder.Append("\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>生日：</dt>\r\n                        <dd>\r\n                        ");
 	if (userModel.birthday==null)
 	{
 
-	templateBuilder.Append("\r\n                            <input name=\"txtBirthday\" id=\"txtBirthday\" type=\"text\" class=\"weui-input\" placeholder=\"请选择日期\" />\r\n                            ");
+	templateBuilder.Append("\r\n                            <input name=\"txtBirthday\" id=\"txtBirthday\" type=\"text\" class=\"input\" maxlength=\"30\" onfocus=\"WdatePicker({dateFmt:'yyyy-MM-dd'});\" />\r\n                        ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                            <input name=\"txtBirthday\" id=\"txtBirthday\" type=\"text\" class=\"weui-input\" value=\"");	templateBuilder.Append(Utils.ObjectToDateTime(userModel.birthday).ToString("yyyy-M-d"));
+	templateBuilder.Append("\r\n                            <input name=\"txtBirthday\" id=\"txtBirthday\" type=\"text\" class=\"input\" maxlength=\"30\" onfocus=\"WdatePicker({dateFmt:'yyyy-MM-dd'});\" value=\"");	templateBuilder.Append(Utils.ObjectToDateTime(userModel.birthday).ToString("yyyy-M-d"));
 
-	templateBuilder.Append("\" placeholder=\"请选择日期\" />\r\n                            ");
+	templateBuilder.Append("\" />\r\n                        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">邮箱</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtEmail\" name=\"txtEmail\" type=\"text\" value=\"");
+	templateBuilder.Append("\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>邮箱：</dt>\r\n                        <dd>\r\n                            <input name=\"txtEmail\" id=\"txtEmail\" type=\"text\" class=\"input\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.email));
-	templateBuilder.Append("\" class=\"weui-input\" placeholder=\"电子邮箱地址\" data-validate=\"e\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">公司名称</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtCompanyName\" name=\"txtCompanyName\" type=\"text\" value=\"");
-	templateBuilder.Append(Utils.ObjectToStr(userModel.companyName));
-	templateBuilder.Append("\" class=\"weui-input\" placeholder=\"公司名称\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">手机号</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtMobile\" name=\"txtMobile\" type=\"tel\" value=\"");
+	templateBuilder.Append("\" datatype=\"e\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>手机：</dt>\r\n                        <dd>\r\n                            <input name=\"txtMobile\" id=\"txtMobile\" type=\"text\" class=\"input\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.mobile));
-	templateBuilder.Append("\" class=\"weui-input\" placeholder=\"请输入手机号\" data-validate=\"m\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">电话</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtTelphone\" name=\"txtTelphone\" type=\"text\" value=\"");
+	templateBuilder.Append("\" datatype=\"m\" sucmsg=\" \" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>电话：</dt>\r\n                        <dd>\r\n                            <input name=\"txtTelphone\" id=\"txtTelphone\" type=\"text\" class=\"input\" maxlength=\"30\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.telphone));
-	templateBuilder.Append("\" class=\"weui-input\" placeholder=\"固定电话号码\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">所属地区</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <select id=\"txtProvince\" name=\"txtProvince\" class=\"select\"></select>\r\n                            <select id=\"txtCity\" name=\"txtCity\" class=\"select\"></select>\r\n                            <select id=\"txtArea\" name=\"txtArea\" class=\"select\"></select>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">详细地址</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtAddress\" name=\"txtAddress\" class=\"weui-input\" type=\"text\" placeholder=\"详细地址\" value=\"");
+	templateBuilder.Append("\" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>所属地区：</dt>\r\n                        <dd>\r\n                            <select id=\"txtProvince\" name=\"txtProvince\" class=\"select\"></select>\r\n                            <select id=\"txtCity\" name=\"txtCity\" class=\"select\"></select>\r\n                            <select id=\"txtArea\" name=\"txtArea\" class=\"select\" datatype=\"*\" sucmsg=\" \"></select>\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>详细地址：</dt>\r\n                        <dd>\r\n                            <input name=\"txtAddress\" id=\"txtAddress\" type=\"text\" class=\"input\" maxlength=\"250\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.address));
-	templateBuilder.Append("\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"weui-cell\">\r\n                        <div class=\"weui-cell__hd\">\r\n                            <label class=\"weui-label\">QQ号码</label>\r\n                        </div>\r\n                        <div class=\"weui-cell__bd\">\r\n                            <input id=\"txtQQ\" name=\"txtQQ\" class=\"weui-input\" type=\"text\" placeholder=\"腾讯QQ号码\" value=\"");
+	templateBuilder.Append("\" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>在线QQ：</dt>\r\n                        <dd>\r\n                            <input name=\"txtQQ\" id=\"txtQQ\" type=\"text\" class=\"input\" maxlength=\"20\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(userModel.qq));
-	templateBuilder.Append("\" />\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"weui-btn-area\">\r\n            <input id=\"btnSubmit\" name=\"btnSubmit\" type=\"submit\" class=\"weui-btn weui-btn_primary\" value=\"确认修改\" />\r\n        </div>\r\n        </form>\r\n    </div>\r\n    <!--版权信息-->\r\n    ");
+	templateBuilder.Append("\" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dt>MSN账户：</dt>\r\n                        <dd>\r\n                            <input name=\"txtMsn\" id=\"txtMsn\" type=\"text\" class=\"input\" maxlength=\"20\" value=\"");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.msn));
+	templateBuilder.Append("\" />\r\n                        </dd>\r\n                    </dl>\r\n                    <dl class=\"form-group\">\r\n                        <dd>\r\n                            <input id=\"btnSubmit\" name=\"btnSubmit\" type=\"submit\" value=\"确认修改\" class=\"submit\" />\r\n                        </dd>\r\n                    </dl>\r\n                 </div>\r\n            </form>\r\n            <!--/修改资料-->\r\n            \r\n            ");
+	}
+	else if (action=="avatar")
+	{
 
-	templateBuilder.Append("        <div class=\"weui-footer footer\">\r\n            <p class=\"weui-footer__text\">");
-	templateBuilder.Append(Utils.ObjectToStr(site.copyright));
-	templateBuilder.Append("</p>\r\n        </div>");
+	templateBuilder.Append("\r\n            <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/jquery.jcrop.css\" />\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/webuploader/webuploader.min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.jcrop.min.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("/templates/yuebon");
+	templateBuilder.Append("/js/avatar.js\"></");
+	templateBuilder.Append("script>\r\n            <script type=\"text/javascript\">\r\n            $(function(){\r\n                initWebUploader('");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("');\r\n            });\r\n            </");
+	templateBuilder.Append("script>\r\n            <!--设置头像-->\r\n            <div class=\"sub-tit\">\r\n                <a class=\"add\" href=\"");
+	templateBuilder.Append(linkurl("usercenter","index"));
 
+	templateBuilder.Append("\"><i class=\"iconfont icon-reply\"></i>返回</a>\r\n                <ul>\r\n                    <li class=\"selected\">\r\n                        <a href=\"javascript:;\">设置头像</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"form-box\">\r\n                <div id=\"upload-box\" class=\"upload-box\"></div>\r\n                <div class=\"cropper-wrap\">\r\n                    <div class=\"cropper-box\">\r\n                        <img id=\"target\" src=\"");
+	templateBuilder.Append("/templates/yuebon");
+	templateBuilder.Append("/images/avatar-bg.png\" width=\"350\" height=\"350\" />\r\n                    </div>\r\n                    <div class=\"cropper-view\">\r\n                        <div class=\"img-box\">\r\n                            ");
+	if (userModel.avatar!="")
+	{
 
-	templateBuilder.Append("\r\n    <!--/版权信息-->\r\n\r\n    <!--底部导航-->\r\n    <div class=\"weui-tab foot-nav\">\r\n        <div class=\"weui-tab__panel\">\r\n\r\n        </div>\r\n        <div class=\"weui-tabbar\">\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("index"));
+	templateBuilder.Append("\r\n                              <img id=\"preview\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.avatar));
+	templateBuilder.Append("\" />\r\n                            ");
+	}
+	else
+	{
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-home weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">首页</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","proinfo"));
+	templateBuilder.Append("\r\n                              <img id=\"preview\" src=\"");
+	templateBuilder.Append("/templates/yuebon");
+	templateBuilder.Append("/images/user-avatar.png\" />\r\n                            ");
+	}	//end for if
 
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-info weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">个人资料</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","password"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-pwd weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">修改密码</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","invite"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-invite weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">邀请注册</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n    <!--/底部导航-->\r\n    <!--/修改资料-->\r\n    \r\n    ");
+	templateBuilder.Append("\r\n                            <span>头像预览</span>\r\n                        </div>\r\n                        <div class=\"btn-box\">\r\n                            <p><strong>头像预览区</strong></p>\r\n                            <p><input name=\"btnSubmit\" type=\"button\" class=\"btn\" value=\"确定保存\" onclick=\"CropSubmit(this);\" /></p>\r\n                            <p class=\"tip\">提示：生成头像大小180*180相素上传图片后，左侧选取图片合适大小，点击下面的保存按钮。</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <form id=\"uploadForm\" name=\"uploadForm\" url=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_avatar_crop\">\r\n                <input id=\"hideFileName\" name=\"hideFileName\" type=\"hidden\" />\r\n                <input id=\"hideX1\" name=\"hideX1\" type=\"hidden\" value=\"0\" />\r\n                <input id=\"hideY1\" name=\"hideY1\" type=\"hidden\" value=\"0\" />\r\n                <input id=\"hideWidth\" name=\"hideWidth\" type=\"hidden\" value=\"0\" />\r\n                <input id=\"hideHeight\" name=\"hideHeight\" type=\"hidden\" value=\"0\" />\r\n            </form>\r\n            <!--/设置头像-->\r\n            \r\n            ");
 	}
 	else if (action=="invite")
 	{
 
-	templateBuilder.Append("\r\n    <!--邀请码-->\r\n    <script type=\"text/javascript\">\r\n        $(function(){\r\n            //选中TAB样式\r\n            $(\".weui-tabbar a\").eq(3).addClass(\"weui-bar__item_on\");\r\n        });\r\n    </");
-	templateBuilder.Append("script>\r\n    <div class=\"page__bd\">\r\n        <!--页面头部-->\r\n        <div class=\"header\">\r\n            <a class=\"back\" href=\"javascript:history.back();\">\r\n                <i class=\"iconfont icon-arrow-left\"></i>\r\n            </a>\r\n            <h3>邀请码</h3>\r\n            <div class=\"right\"> \r\n                <a class=\"weui-cell_access weui-cell_link\" href=\"javascript:;\" onclick=\"clickSubmit('");
+	templateBuilder.Append("\r\n            <!--邀请码-->\r\n            <div class=\"sub-tit\">\r\n                <a class=\"add\" href=\"javascript:;\" onclick=\"clickSubmit('");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=user_invite_code');\">\r\n                    <i class=\"iconfont icon-edit\"></i>\r\n                </a>\r\n            </div>\r\n        </div>\r\n        <!--/页面头部-->\r\n        \r\n        <div class=\"detail-list\">\r\n            <ul>\r\n                ");
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_invite_code');\">\r\n                    <i class=\"fa fa-reply\"></i>申请邀请码\r\n                </a>\r\n                <ul>\r\n                    <li class=\"selected\">\r\n                        <a href=\"javascript:;\">我的邀请码</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"table-wrap\">\r\n                <div class=\"msg-box\">\r\n                    <i class=\"iconfont icon-tip\"></i>\r\n                    <p>您购买的邀请码会在失效之后由系统定时清理，不会长期驻留在列表中。</p>\r\n                </div>\r\n                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"ftable\">\r\n                    <tr>\r\n                        <th align=\"left\">邀请码</th>\r\n                        <th width=\"150\">申请时间</th>\r\n                        <th width=\"150\">过期时间</th>\r\n                        <th width=\"80\">已使用次数</th>\r\n                        <th width=\"80\">状态</th>\r\n                    </tr>\r\n                    ");
 	DataTable inviteList = get_user_invite_list(0, "user_name='"+userModel.user_name+"'");
 
 	foreach(DataRow dr in inviteList.Rows)
 	{
 
-	templateBuilder.Append("\r\n                <li>\r\n                    <div class=\"detail-hd\">\r\n                        <span class=\"fr\">\r\n                            ");
+	templateBuilder.Append("\r\n                    <tr>\r\n                        <td>\r\n                            " + Utils.ObjectToStr(dr["str_code"]) + " &nbsp; \r\n                            <a href=\"javascript:;\" onclick=\"copyText('邀请码：" + Utils.ObjectToStr(dr["str_code"]) + "');\">[复制]</a>\r\n                        </td>\r\n                        <td align=\"center\">" + Utils.ObjectToStr(dr["add_time"]) + "</td>\r\n                        <td align=\"center\">\r\n                            " + Utils.ObjectToStr(dr["eff_time"]) + "\r\n                        </td>\r\n                        <td align=\"center\">" + Utils.ObjectToStr(dr["count"]) + "</td>\r\n                        <td align=\"center\">\r\n                            ");
 	if (get_invite_status(Utils.ObjectToStr(dr["str_code"])))
 	{
 
@@ -265,38 +469,120 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n                                已失效\r\n                            ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                        </span>\r\n                        <span>已使用 " + Utils.ObjectToStr(dr["count"]) + " 次</span>\r\n                    </div>\r\n                    <div class=\"detail-bd\">\r\n                        <div class=\"list-box\">\r\n                            <div class=\"txt-box\">\r\n                                <h2>邀请码：" + Utils.ObjectToStr(dr["str_code"]) + "</h2>\r\n                                <p>有效期：" + Utils.ObjectToStr(dr["add_time"]) + " - " + Utils.ObjectToStr(dr["eff_time"]) + "</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </li>\r\n                ");
+	templateBuilder.Append("\r\n                        </td>\r\n                    </tr>\r\n                    ");
 	}	//end for if
 
 	if (inviteList.Rows.Count==0)
 	{
 
-	templateBuilder.Append("\r\n                <div class=\"nodata\">暂无邀请码...</div>\r\n                ");
+	templateBuilder.Append("\r\n                        <tr><td colspan=\"8\" align=\"center\">暂无邀请码...</td></tr>\r\n                    ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n            </ul>\r\n        </div>\r\n        \r\n    </div>\r\n    <!--版权信息-->\r\n    ");
+	templateBuilder.Append("\r\n                </table>\r\n            </div>\r\n            <!--/邀请码-->\r\n            ");
+	}	//end for if
 
-	templateBuilder.Append("        <div class=\"weui-footer footer\">\r\n            <p class=\"weui-footer__text\">");
+	templateBuilder.Append("\r\n            \r\n        </div>\r\n    </div>\r\n    <!--/页面左边-->\r\n</div>\r\n\r\n<!--页面底部-->\r\n");
+
+	templateBuilder.Append("<div class=\"ecofootbg\">\r\n    <div class=\"met-footnav-eco\">\r\n        <div class=\"container\">\r\n            <div class=\"row mob-masonry\">\r\n                <div class=\"col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item\">\r\n                    <h4>关于</h4>\r\n                    <ul>\r\n                        ");
+	int ftabdr__loop__id=0;
+	foreach(DataRow ftabdr in aboutList.Rows)
+	{
+		ftabdr__loop__id++;
+
+
+	templateBuilder.Append("\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("content",Utils.ObjectToStr(ftabdr["call_index"])));
+
+	templateBuilder.Append("\" target='_self' title=\"" + Utils.ObjectToStr(ftabdr["title"]) + "\">" + Utils.ObjectToStr(ftabdr["title"]) + "</a></li>\r\n                        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("jobs"));
+
+	templateBuilder.Append("\" target='_self' title=\"加入我们\">加入我们</a></li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item\">\r\n                    <h4>产品&解决方案</h4>\r\n                    <ul>\r\n                        ");
+	int ftcadr__loop__id=0;
+	foreach(DataRow ftcadr in solutionscategoryList.Rows)
+	{
+		ftcadr__loop__id++;
+
+
+	templateBuilder.Append("\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("solutions",Utils.ObjectToStr(ftcadr["call_index"])));
+
+	templateBuilder.Append("\" target='_self' title=\"" + Utils.ObjectToStr(ftcadr["title"]) + "\">" + Utils.ObjectToStr(ftcadr["title"]) + "</a></li>\r\n                        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                    </ul>\r\n                </div>\r\n\r\n                <div class=\"col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item\">\r\n                    <h4>新闻</h4>\r\n                    <ul>\r\n                        ");
+	foreach(DataRow fcdr in newscategoryList.Rows)
+	{
+
+	templateBuilder.Append("\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(fcdr["id"])));
+
+	templateBuilder.Append("\" target='_self'  title=\"" + Utils.ObjectToStr(fcdr["title"]) + "\">" + Utils.ObjectToStr(fcdr["title"]) + "</a></li>\r\n                        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-md-1 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item\">\r\n                    <h4>其他</h4>\r\n                    <ul>\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("case"));
+
+	templateBuilder.Append("\" target='_self' title=\"案例\">案例</a></li>\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("down"));
+
+	templateBuilder.Append("\" target='_self' title=\"资料下载\">资料下载</a></li>\r\n                        <li><a href=\"");
+	templateBuilder.Append(linkurl("feedback"));
+
+	templateBuilder.Append("\" target='_self' title=\"留言反馈\">留言反馈</a></li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-md-3 col-sm-4 col-xs-12 list  text-left masonry-item\">\r\n                    <h4>联系我们</h4>\r\n                    <ul class=\"contact-info\">\r\n                        <li><i class=\"icon fa-map-marker\"></i>");
+	templateBuilder.Append(Utils.ObjectToStr(site.address));
+	templateBuilder.Append("</li>\r\n                        <li><i class=\"icon fa-phone\"></i><a href=\"tel:");
+	templateBuilder.Append(Utils.ObjectToStr(site.tel));
+	templateBuilder.Append("\" title=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.tel));
+	templateBuilder.Append("\">");
+	templateBuilder.Append(Utils.ObjectToStr(site.tel));
+	templateBuilder.Append("</a></li>\r\n                        <li><i class=\"icon fa-envelope-o\"></i>");
+	templateBuilder.Append(Utils.ObjectToStr(site.email));
+	templateBuilder.Append("</li>\r\n                        <li><i class=\"icon fa-globe\"></i>");
+	templateBuilder.Append(Utils.ObjectToStr(site.domain));
+	templateBuilder.Append("</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"met-links text-center\">\r\n        <div class=\"container\">\r\n            <ol class=\"breadcrumb\">\r\n                <li>友情链接 :</li>\r\n                ");
+	DataTable linkList = new YueBonSoft.Web.Plugin.Link.link().get_link_list(0, "");
+
+	foreach(DataRow dr in linkList.Rows)
+	{
+
+	templateBuilder.Append("\r\n                <li><a href=\"" + Utils.ObjectToStr(dr["site_url"]) + "\" title=\"" + Utils.ObjectToStr(dr["title"]) + "\" target=\"_blank\">" + Utils.ObjectToStr(dr["title"]) + "</a></li>\r\n                ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n                <li><a href=\"");
+	templateBuilder.Append(linkurl("link"));
+
+	templateBuilder.Append("\" target=\"_blank\">更多</a></li>\r\n            </ol>\r\n        </div>\r\n    </div>\r\n    <footer>\r\n        <div class=\"container text-center\">\r\n            <p>");
+	templateBuilder.Append(Utils.ObjectToStr(site.company));
+	templateBuilder.Append("© 2016-");
+	templateBuilder.Append(Utils.ObjectToStr(DTKeys.ASSEMBLY_YEAR));
+	templateBuilder.Append(" 版权所有,未经授权,禁止使用. </p>\r\n            <p>地址：");
+	templateBuilder.Append(Utils.ObjectToStr(site.address));
+	templateBuilder.Append(" </p>\r\n            <p>电话：");
+	templateBuilder.Append(Utils.ObjectToStr(site.tel));
+	templateBuilder.Append(" 传真: ");
+	templateBuilder.Append(Utils.ObjectToStr(site.fax));
+	templateBuilder.Append("</p>\r\n            <p>Email: ");
+	templateBuilder.Append(Utils.ObjectToStr(site.email));
+	templateBuilder.Append("</p>\r\n            <p>");
 	templateBuilder.Append(Utils.ObjectToStr(site.copyright));
-	templateBuilder.Append("</p>\r\n        </div>");
+	templateBuilder.Append("</p>\r\n            <p><a href=\"http://www.miitbeian.gov.cn/\" target=\"_blank\" rel=\"nofollow\"><span style=\"font-family: 宋体;\">备案号: ");
+	templateBuilder.Append(Utils.ObjectToStr(site.crod));
+	templateBuilder.Append("</span></a>\r\n                ");
+	templateBuilder.Append(Utils.ObjectToStr(config.webcountcode));
+	templateBuilder.Append("</p>\r\n            <div class=\"powered_by_metinfo\">Powered by YuebonInfo 3.0</div>\r\n        </div>\r\n    </footer>\r\n</div>\r\n<div class=\"modal fade modal-3d-flip-vertical\" id=\"site-navbar-search\" aria-hidden=\"true\" role=\"dialog\" tabindex=\"-1\">\r\n    <div class=\"modal-dialog modal-center modal-lg\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-body\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <span aria-hidden=\"true\">×</span>\r\n                </button>\r\n                <div class=\"container\">\r\n                    <div class=\"row\">\r\n                        <div class=\"search\">\r\n                            <form role=\"search\">\r\n                                <div class=\"form-group\">\r\n                                    <div class=\"input-search\">\r\n                                        <input id=\"keywords\" class=\"form-control\" name=\"keywords\" onkeydown=\"if(event.keyCode==13){SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入关健字\" type=\"text\">\r\n                                        <button type=\"button\" onclick=\"SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');\" class=\"input-search-btn\"><i class=\"icon fa-search\" aria-hidden=\"true\"></i></button>\r\n                                    </div>\r\n                                </div>\r\n                            </form>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<button type=\"button\" class=\"btn btn-icon btn-primary btn-squared met-scroll-top hide\"><i class=\"icon fa-chevron-up\" aria-hidden=\"true\"></i></button>\r\n");
 
 
-	templateBuilder.Append("\r\n    <!--/版权信息-->\r\n\r\n    <!--底部导航-->\r\n    <div class=\"weui-tab foot-nav\">\r\n        <div class=\"weui-tab__panel\">\r\n\r\n        </div>\r\n        <div class=\"weui-tabbar\">\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-home weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">首页</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","proinfo"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-info weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">个人资料</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","password"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-pwd weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">修改密码</p>\r\n            </a>\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","invite"));
-
-	templateBuilder.Append("\" class=\"weui-tabbar__item\">\r\n                <i class=\"iconfont icon-invite weui-tabbar__icon\"></i>\r\n                <p class=\"weui-tabbar__label\">邀请注册</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n    <!--/底部导航-->\r\n    <!--/邀请码-->\r\n    ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n    \r\n    \r\n    \r\n</div>\r\n</body>\r\n</html>\r\n");
+	templateBuilder.Append("\r\n<!--/页面底部-->\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
 </script>

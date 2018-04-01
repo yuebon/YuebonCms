@@ -3,32 +3,24 @@
         <div class="container">
             <div class="row mob-masonry">
                 <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
-                    <h4>关于延轩</h4>
+                    <h4>关于</h4>
                     <ul>
                         <%loop ftabdr aboutList%>
                         <li><a href="<%linkurl("content",{ftabdr[call_index]})%>" target='_self' title="{ftabdr[title]}">{ftabdr[title]}</a></li>
                         <%/loop%>
+                        <li><a href="<%linkurl("jobs")%>" target='_self' title="加入我们">加入我们</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
-                    <h4>生产能力</h4>
+                    <h4>产品&解决方案</h4>
                     <ul>
-                        <%loop ftcadr capacityList%>
-                        <li><a href="<%linkurl("capacity",{ftcadr[call_index]})%>" target='_self' title="{ftcadr[title]}">{ftcadr[title]}</a></li>
+                        <%loop ftcadr solutionscategoryList%>
+                        <li><a href="<%linkurl("solutions",{ftcadr[call_index]})%>" target='_self' title="{ftcadr[title]}">{ftcadr[title]}</a></li>
                         <%/loop%>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
-                    <h4>模具产品</h4>
-                    <ul>
-                        <%loop ftgdcadr gdcaList%>
-                        <li><a href="<%linkurl("goods_list",{ftgdcadr[call_index]})%>" target='_self' title="{ftgdcadr[title]}">{ftgdcadr[title]}</a></li>
-                        <%/loop%>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
-                    <h4>新闻资讯</h4>
+                    <h4>资讯</h4>
                     <ul>
                         <%foreach(DataRow fcdr in newscategoryList.Rows)%>
                         <li><a href="<%linkurl("news_list",{fcdr[id]})%>" target='_self'  title="{fcdr[title]}">{fcdr[title]}</a></li>
@@ -38,14 +30,11 @@
                 <div class="col-md-1 col-sm-4 col-xs-6 list ecoinfo text-left masonry-item">
                     <h4>其他</h4>
                     <ul>
-                        <li><a href="<%linkurl("case")%>" target='_self' title="客户案例">客户案例</a></li>
-                        <li><a href="<%linkurl("jobs")%>" target='_self' title="加入我们">加入我们</a></li>
+                        <li><a href="<%linkurl("case")%>" target='_self' title="案例">案例</a></li>
                         <li><a href="<%linkurl("down")%>" target='_self' title="资料下载">资料下载</a></li>
                         <li><a href="<%linkurl("feedback")%>" target='_self' title="留言反馈">留言反馈</a></li>
                     </ul>
                 </div>
-
-                
                 <div class="col-md-3 col-sm-4 col-xs-12 list  text-left masonry-item">
                     <h4>联系我们</h4>
                     <ul class="contact-info">
@@ -53,23 +42,6 @@
                         <li><i class="icon fa-phone"></i><a href="tel:{site.tel}" title="{site.tel}">{site.tel}</a></li>
                         <li><i class="icon fa-envelope-o"></i>{site.email}</li>
                         <li><i class="icon fa-globe"></i>{site.domain}</li>
-                    </ul>
-                    <ul class="social">
-                        <li>
-                            <a href="http://wpa.qq.com/msgrd?v=3&uin=85828165&site=qq&menu=yes" rel="nofollow" target="_blank" class="hvr-radial-out">
-                                <i class="fa fa-qq"></i>
-                            </a>
-                        </li>
-                        <li><a href="https://twitter.com/unitedchemco" rel="nofollow" target="_blank" class="hvr-radial-out"><i class="icon fa-twitter"></i></a></li>
-                        <li><a href="https://plus.google.com/+QducCn" rel="nofollow" target="_blank" class="hvr-radial-out"><i class="icon fa-google-plus"></i></a></li>
-                        <li><a href="https://www.facebook.com/UnitedChemCo/" rel="nofollow" target="_blank" class="hvr-radial-out"><i class="icon fa-facebook-official"></i></a></li>
-                        <li><a href="mailto:info@qduc.com.cn" rel="nofollow" target="_blank" class="hvr-radial-out"><i class="icon fa-envelope"></i></a></li>
-                        <li>
-                            <a id="met-weixin" data-target="webuiPopover0"><i class="fa fa-weixin"></i></a>
-                            <div id="met-weixin-content" class="hide">
-                                <div class="text-center met-weixin-img"><img src="<%templateskin%>/images/wechatcode.jpg" /></div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -97,37 +69,6 @@
             <p><a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow"><span style="font-family: 宋体;">备案号: {site.crod}</span></a>
                 {config.webcountcode}</p>
             <div class="powered_by_metinfo">Powered by YuebonInfo 3.0</div>
-            <div class="met-langlist margin-top-10">
-                <button type="button" class="btn btn-outline btn-default btn-squared" data-toggle="modal" data-target="#met-langlist-modal">
-                    <span class="flag-icon flag-icon-cn"></span>
-                    简体中文
-                </button>
-                <div class="modal fade modal-3d-flip-vertical" id="met-langlist-modal" aria-hidden="true" role="dialog" tabindex="-1">
-                    <div class="modal-dialog modal-center modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-20">
-                                        <a href="http://en.yanxuan-mould.com" class="btn btn-block btn-outline btn-default btn-squared text-nowrap" title="English">
-                                            <span class="flag-icon flag-icon-gb pull-left"></span>
-                                            English
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-20">
-                                        <a href="http://www.yanxuan-mould.com/" class="btn btn-block btn-outline btn-default btn-squared text-nowrap" title="简体中文">
-                                            <span class="flag-icon flag-icon-cn pull-left"></span>
-                                            简体中文
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </footer>
 </div>

@@ -1,0 +1,300 @@
+﻿@charset "utf-8";
+/* 轮播图 */
+.swiper-wrapper {
+width: 100%;
+height: auto;
+display: table;
+min-height: 200px;
+}
+
+.swiper-wrapper.fixedheight {
+display: -moz-deck;
+}
+
+.swiper-wrapper.fixedheight .slick-slide {
+height: 100%;
+}
+
+.swiper-wrapper.fixedheight .slick-slide img {
+width: auto;
+height: 100%;
+position: absolute;
+left: 50%;
+top: 0;
+transform: translateX(-50%);
+}
+
+@media screen\0 {
+.swiper-wrapper.fixedheight .slick-slide img {
+left: 0;
+width: 100%;
+}
+}
+
+.swiper-wrapper.banner-ny-h {
+height: 150px;
+}
+
+.swiper-wrapper.banner-ny-h .slick-slide img {
+min-height: 100px;
+}
+
+@media (max-width:991px) {
+.swiper-wrapper.banner-ny-h {
+height: 100px;
+}
+}
+
+.swiper-wrapper .slick-slide {
+display: block;
+width: 100%;
+}
+
+.swiper-wrapper.slick-slider {
+display: block;
+}
+
+.swiper-wrapper:hover .slick-arrow {
+display: block !important;
+}
+
+.swiper-wrapper .slick-list,
+.swiper-wrapper .slick-track {
+height: 100%;
+}
+
+.swiper-wrapper .slick-prev:before, .swiper-wrapper .slick-next:before {
+display: none;
+}
+
+.swiper-wrapper .slick-slide {
+height: auto;
+position: relative;
+overflow: hidden;
+}
+
+.swiper-wrapper .slick-slide a {
+width: 100%;
+height: 100%;
+display: block;
+position: absolute;
+left: 0;
+top: 0;
+z-index: 13;
+}
+
+.swiper-wrapper .slick-slide img {
+min-height: 150px;
+width: 100%;
+}
+
+.swiper-wrapper .slick-slide img[data-lazy] {
+max-height: 150px;
+}
+
+.swiper-wrapper .slick-arrow {
+width: 15%;
+height: 100%;
+display: none !important;
+z-index: 1;
+}
+
+.swiper-wrapper .slick-arrow.slick-prev {
+background: rgba(0,0,0,0.24995);
+background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+background: linear-gradient(left,rgba(0,0,0,.5) 0%,rgba(0,0,0,.0001) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#80000000,endColorStr=#00000000,GradientType=1);
+}
+
+@media screen\0 {
+.swiper-wrapper .slick-arrow.slick-prev {
+background: rgba(0,0,0,.001);
+}
+}
+
+.swiper-wrapper .slick-arrow.slick-next {
+background: rgba(0,0,0,-0.24995);
+background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+background: linear-gradient(left,rgba(0,0,0,.0001) 0%,rgba(0,0,0,.5) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#00000000,endColorStr=#80000000,GradientType=1);
+}
+
+@media screen\0 {
+.swiper-wrapper .slick-arrow.slick-next {
+background: rgba(0,0,0,.001);
+}
+}
+
+.swiper-wrapper .slick-arrow i {
+font-size: 40px;
+color: #fff !important;
+}
+
+.swiper-wrapper .slick-dots {
+margin: 0;
+bottom: 20px;
+}
+
+.swiper-wrapper .slick-dots li {
+margin: 0 2px;
+}
+
+@media (max-width:767px) {
+.swiper-wrapper {
+min-height: 100px;
+}
+
+.swiper-wrapper .slick-dots {
+bottom: 5px;
+}
+
+.swiper-wrapper .slick-dots li {
+width: 15px;
+height: 15px;
+margin: 0;
+}
+}
+
+.swiper-wrapper .banner-text {
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
+z-index: 12;
+}
+
+.swiper-wrapper .banner-text .container {
+height: 100%;
+display: table;
+text-align: center;
+}
+
+.swiper-wrapper .banner-text .container .banner-text-con {
+display: table-cell;
+vertical-align: middle;
+}
+
+.swiper-wrapper .banner-text.p-0 .container {
+text-align: left;
+}
+
+.swiper-wrapper .banner-text.p-0 .container .banner-text-con div {
+width: 60%;
+float: left;
+}
+
+.swiper-wrapper .banner-text.p-1 .container {
+text-align: right;
+}
+
+.swiper-wrapper .banner-text.p-1 .container .banner-text-con div {
+width: 60%;
+float: right;
+}
+
+.swiper-wrapper .banner-text.p-2 {
+top: 10%;
+}
+
+.swiper-wrapper .banner-text.p-2 .container .banner-text-con {
+vertical-align: top;
+}
+
+.swiper-wrapper .banner-text.p-3 {
+top: auto;
+bottom: 10%;
+}
+
+.swiper-wrapper .banner-text.p-3 .container .banner-text-con {
+vertical-align: bottom;
+}
+
+.swiper-wrapper .banner-text.p-2 .container .banner-text-con div,
+.swiper-wrapper .banner-text.p-3 .container .banner-text-con div,
+.swiper-wrapper .banner-text.p-4 .container .banner-text-con div {
+width: 60%;
+display: inline-block;
+}
+
+.swiper-wrapper .banner-text h4,
+.swiper-wrapper .banner-text p {
+color: #fff;
+}
+
+.swiper-wrapper .banner-text h4 {
+margin: 0;
+font-size: 30px;
+}
+
+.swiper-wrapper .banner-text p {
+font-size: 36px;
+margin: 20px 0 0;
+text-shadow: none;
+}
+
+.swiper-wrapper .banner-text .btn {
+margin-top: 30px;
+font-size: 20px;
+}
+
+@media (max-width:991px) {
+.swiper-wrapper .banner-text h4 {
+font-size: 20px;
+}
+
+.swiper-wrapper .banner-text p {
+font-size: 30px;
+}
+}
+
+@media (max-width:767px) {
+.swiper-wrapper .banner-text .container {
+width: 100%;
+}
+
+.swiper-wrapper .banner-text.p-4 .container .banner-text-con {
+width: 100%;
+}
+
+.swiper-wrapper .banner-text h4 {
+font-size: 18px;
+}
+
+.swiper-wrapper .banner-text p {
+margin-top: 15px;
+font-size: 24px;
+}
+
+.swiper-wrapper .banner-text .btn {
+margin-top: 20px;
+font-size: 16px;
+}
+}
+
+@media (max-width:479px) {
+.swiper-wrapper .banner-text h4 {
+font-size: 16px;
+}
+
+.swiper-wrapper .banner-text p {
+margin-top: 10px;
+font-size: 20px;
+}
+}
+/* 内页轮播图 */
+.swiper-wrapper-ny {
+height: 120px;
+background:;
+background: #62a8ea;
+}
+
+.swiper-wrapper-ny h1,
+.swiper-wrapper-ny h2 {
+margin: 0px;
+padding: 10px 30px;
+font-size: 35px;
+text-shadow: none;
+color: #fff;
+font-weight: 300;
+}
