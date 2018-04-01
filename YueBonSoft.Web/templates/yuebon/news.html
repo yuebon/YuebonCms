@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新闻资讯 - {site.name}</title>
+<meta name="keywords" content="{site.seo_keyword}" />
+<meta name="description" content="{site.seo_description}" />
+<link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{config.webpath}css/pagination.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/bootstrap-extend.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/site.min.css" />
+    <link href="{config.webpath}css/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{config.webpath}css/flagicon/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%templateskin%>/css/style.css" />
+    <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body id="news" class="met-navfixed">
+<!--页面头部-->
+<%template src="_header.html"%>
+<!--/页面头部-->
+<div class="met-banner-ny vertical-align text-center animation-slide-top" data-animate="slide-bottom"  style="background:url(<%templateskin%>/images/newstopic.jpg) center top no-repeat;">
+    <!--<h1 class="vertical-align-middle">新闻中心</h1>-->
+</div>
+<!--当前位置-->
+<div class="met-position  pattern-show">
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="<%linkurl("index")%>" title="首页">
+                        <i class="icon fa-home" aria-hidden="true"></i>首页
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="<%linkurl("news")%>"
+                        title="新闻资讯"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-expanded="false">新闻资讯<i class="caret"></i></a>
+                    <ul class="dropdown-menu bullet">
+                        <li><a href="<%linkurl("news")%>" title="全部">全部</a></li>
+                        <%set DataTable categoryList=get_category_child_list(channel,0)%>
+                        <%foreach(DataRow cdr in categoryList.Rows)%>
+                        <li><a href="<%linkurl("news_list",{cdr[id]})%>" title="{cdr[title]}">{cdr[title]}</a></li>
+                        <%/foreach%>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!--/当前位置-->
+
+<section class="met-news animsition ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 met-news-body">
+                <div class="row">
+                    <div class="met-news-list">
+                        <ul class="met-page-ajax" data-scale='0.625'>
+                            <!--取得一个分页DataTable-->
+                            <%set DataTable newsList=get_article_list(channel, category_id, pagesize, page, "status=0", out totalcount, out pagelist, "news_list", category_id, "__id__")%>
+                            <%foreach(DataRow dr in newsList.Rows)%>
+                            <li class="">
+	                            <div class="media media-lg">
+                                    <%if({dr[img_url]}!="")%>
+		                            <div class="media-left">
+			                            <a href="<%linkurl("news_show",{dr[id]})%>" title="{dr[title]}" target='_self'>
+				                            <img class="media-object" src="{dr[img_url]}" style='width:160px; height:150px;' alt="{dr[title]}">
+			                            </a>
+		                            </div>
+                                    <%/if%>
+		                            <div class="media-body">
+			                            <h4 class="media-heading">
+				                            <a href="<%linkurl("news_show",{dr[id]})%>" title="{dr[title]}" target='_self'>
+                                                {dr[title]}
+				                            </a>
+			                            </h4>
+			                            <p class="des">{dr[zhaiyao]}</p>
+			                            <p class="info">
+				                            <span>{dr[add_time]}</span>
+				                            <span>{dr[author]}</span>
+                                            <span title="评论"><i class="fa fa-comment margin-right-5" aria-hidden="true" ></i><script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_comment_count&channel_id={dr[channel_id]}&id={dr[id]}"></script>人</span>
+				                            <span title="浏览"><i class="fa fa-eye margin-right-5" aria-hidden="true"></i><script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_article_click&channel_id={dr[channel_id]}&id={dr[id]}"></script>次</span>
+			                            </p>
+		                            </div>
+	                            </div>
+                            </li>
+                            <%/foreach%>
+                        </ul>
+                        <div class="hidden-xs">
+                            <div class='met_pager'>{pagelist}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="met-news-bar">
+                       <form>
+                            <input  id="keywords" name="keywords" onkeydown="if(event.keyCode==13){SiteSearch('<%linkurl("search")%>', '#keywords');return false};" placeholder="输入关健字" type="text">
+                            <button type="button" onclick="SiteSearch('<%linkurl("search")%>', '#keywords');"><span class="icon fa-search"></span></button>
+                        </form>
+                        
+                        <ul class="column">
+                            <li><a href="<%linkurl("news")%>" title="所有文章" target='_self'>新闻资讯</a></li>
+                            <%foreach(DataRow cdr in categoryList.Rows)%>
+                            <li><a href="<%linkurl("news_list",{cdr[id]})%>" title="{cdr[title]}" target='_self'>{cdr[title]}</a></li>
+                            <%/foreach%>
+                        </ul>
+                        <div class="recommend news-list-md">
+                            <h3>阅读排行</h3>
+                            <ul class="list-group list-group-bordered">
+                                <%set DataTable hotNews=get_article_list(channel, 0, 10, "status=0", "click desc,id desc")%>
+                                <%loop hotdr hotNews%>
+                                <li class="list-group-item"><a href="<%linkurl("news_show",{hotdr[id]})%>" title="{hotdr[title]}" target='_self'>{hotdr[title]}</a></li>
+                                <%/loop%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--页面底部-->
+<%template src="_footer.html"%>
+<!--/页面底部-->
+</body>
+</html>
