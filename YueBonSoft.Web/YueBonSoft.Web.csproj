@@ -1347,7 +1347,6 @@
     <Content Include="templates\yanxuan\images\qiche.jpg" />
     <Content Include="templates\yanxuan\images\slide_btns.png" />
     <Content Include="templates\yanxuan\images\thumb_002.jpg" />
-    <Content Include="templates\yanxuan\images\thumb_022.jpg" />
     <Content Include="templates\yanxuan\images\user-avatar.png" />
     <Content Include="templates\yanxuan\images\wechatcode.jpg" />
     <Content Include="templates\yanxuan\index.html" />
